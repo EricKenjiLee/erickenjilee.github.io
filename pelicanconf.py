@@ -7,6 +7,9 @@ SITENAME = "Kenji's Data Blog"
 SITEURL = ''
 
 PATH = 'content'
+STATIC_PATHS = ['images']
+ARTICLE_SAVE_AS = '{date:%Y}/{slug}.html'
+ARTICLE_URL = '{date:%Y}/{slug}.html'
 
 TIMEZONE = 'America/Los_Angeles'
 
@@ -22,16 +25,17 @@ AUTHOR_FEED_RSS = None
 # Blogroll
 LINKS = (('Pelican', 'http://getpelican.com/'),
          ('Python.org', 'http://python.org/'),
-         ('Jinja2', 'http://jinja.pocoo.org/'),
-         ('You can modify those links in your config file', '#'),)
+         ('Jinja2', 'http://jinja.pocoo.org/'),)
 
 # Social widget
-SOCIAL = (('You can add links in your config file', '#'),
-          ('Another social link', '#'),)
+SOCIAL = (('LinkedIn', 'https://www.linkedin.com/in/erickenjilee/'),
+          ('GitHub', 'https://github.com/EricKenjiLee/'),)
 
 DEFAULT_PAGINATION = 10
 
 DISQUS_SITENAME = "erickenjilee-com"
+GOOGLE_ANALYTICS = "UA-116317987-1"
+TWITTER_USERNAME = "EricKenjiLee"
 
 # Uncomment following line if you want document-relative URLs when developing
 #RELATIVE_URLS = True
