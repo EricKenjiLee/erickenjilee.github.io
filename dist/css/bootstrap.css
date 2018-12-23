@@ -6162,6 +6162,10 @@ button.bg-dark:focus {
   background-color: transparent !important;
 }
 
+.bg-arraytomography {
+  background-image: url(/assets/img/arraytomography.jpg) !important;
+}
+
 .border {
   border: 1px solid #dee2e6 !important;
 }
@@ -8869,6 +8873,14 @@ a.text-warning:hover, a.text-warning:focus {
 
 a.text-danger:hover, a.text-danger:focus {
   color: #bd2130 !important;
+}
+
+.text-purple {
+  color: mediumpurple !important;
+}
+
+a.text-purple:hover, a.text-purple:focus {
+  color: rebeccapurple !important;
 }
 
 .text-light {
