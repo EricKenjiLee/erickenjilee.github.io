@@ -26,6 +26,11 @@
   --danger: #dc3545;
   --light: #f8f9fa;
   --dark: #343a40;
+  --theme1: #FFFFFF;
+  --theme2: #00171F;
+  --theme3: #003459;
+  --theme4: #007EA7;
+  --theme5: #00A8E8;
   --breakpoint-xs: 0;
   --breakpoint-sm: 576px;
   --breakpoint-md: 768px;
@@ -64,9 +69,9 @@ body {
   font-size: 1rem;
   font-weight: 400;
   line-height: 1.5;
-  color: #212529;
+  color: #ffffff;
   text-align: left;
-  background-color: #fff;
+  background-color: #00171F;
 }
 
 [tabindex="-1"]:focus {
@@ -3906,7 +3911,7 @@ tbody.collapse.show {
 .nav-pills .nav-link.active,
 .nav-pills .show > .nav-link {
   color: #fff;
-  background-color: #007bff;
+  background-color: cornflowerblue;
 }
 
 .nav-fill .nav-item {
@@ -4932,7 +4937,7 @@ tbody.collapse.show {
 .jumbotron {
   padding: 2rem 1rem;
   margin-bottom: 2rem;
-  background-color: #e9ecef;
+  background-color: #000000;
   border-radius: 0.3rem;
 }
 
@@ -8985,3 +8990,30 @@ a.text-dark:hover, a.text-dark:focus {
   }
 }
 /*# sourceMappingURL=bootstrap.css.map */
+
+/*These are custom objects*/
+
+.post-thumb {
+    float: left
+}
+.post-thumb img {
+    display: block
+}
+
+.post-content {
+    margin-left: 210px
+}
+
+.striped-border {
+    border: 1px solid #ffffff;
+    width: 100%;
+    margin: auto;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+
+.intro_card {
+  padding: 2rem 1rem;
+  margin-bottom: 2rem;
+  border-radius: 0.3rem;
+}
