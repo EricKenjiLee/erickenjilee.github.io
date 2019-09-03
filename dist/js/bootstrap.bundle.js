@@ -553,7 +553,7 @@ var Carousel = function ($$$1) {
   var TOUCHEVENT_COMPAT_WAIT = 500; // Time for mouse compat events to fire after touch
 
   var Default = {
-    interval: false,
+    interval: 5000,
     keyboard: true,
     slide: false,
     pause: 'hover',
