@@ -1,0 +1,202 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <link rel="icon" href="assets/img/think.ico">
+  <title>Applying to Grad School</title>
+
+  <!-- Better SLideShow script -->
+  <script>
+    makeBSS('.bss-slides');
+  </script>
+
+    <!-- Bootstrap core CSS -->
+  <link href="dist/css/bootstrap.css" rel="stylesheet">
+
+  <!-- Custom styles for this template -->
+  <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
+  <link href="blog.css" rel="stylesheet">
+
+  <!-- Global Site Tag (gtag.js) - Google Analytics -->
+  <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116317987-1"></script>
+  <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'UA-116317987-1');
+  </script>
+
+  <!-- Hotjar Tracking Code for erickenjilee.github.io -->
+  <script>
+    (function(h,o,t,j,a,r){
+      h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
+      h._hjSettings={hjid:840104,hjsv:6};
+      a=o.getElementsByTagName('head')[0];
+      r=o.createElement('script');r.async=1;
+      r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
+      a.appendChild(r);
+    })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
+  </script>
+
+</head>
+<body>
+  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <a class="navbar-brand" href="#"><b><i>Neuroscience, Theoretically</i></b></a>
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+    <div class="collapse navbar-collapse" id="navbarNav">
+      <ul class="navbar-nav">
+        <li class="nav-item active">
+          <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+        </li>
+      </ul>
+    </div>
+  </nav>
+
+  <h4 class="pb-3 mb-4 font-italic border-bottom">
+       The Application Timeline
+   </h4>
+
+   So with all of that out of the way, here's the timeline that I followed for applying to Ph.D. programs in neuroscience. Note that this might be a bit infeasible if you are still in school and know that I already had taken my GRE in 2017.<br><br>
+
+   <h6 class="pb-3 mb-4 font-italic border-bottom">
+        Researching Schools: May through July
+    </h6>
+    During these months, I did a lot of work reading through the literature and figuring out what clusters of systems/computational neuroscientists existed and where; especially those that looked at latent space inference with ML and worked in the visual cortex of the mouse or prefrontal/motor cortex of the macaque. I did this by looking back over all the journal articles I found most interesting and doing mini literature reviews until certain names started reoccuring
+    in the papers. You should definitely be using a reference manage but personally I used OneNote in conjunction with ReadCube (the recommendations tool is excellent). Here I also began taking notes on what I found most interesting and started refining a rough draft of my personal statement. I also found very helpful to peruse the speakers lists of conferences like CCN or CNS but <i>especially</i> Cosyne; it was of tremendous help to come across a <a href="https://neuroecology.files.wordpress.com/2019/02/network2019.pdf" target="_blank">network graph</a> by Adam Calhoun linking PI's by co-authorship on abstracts. This is also doubly useful because
+    graduate students largely adopt the professional network of their PI's and this was a good way of visualizing this. I also created a <a href="https://docs.google.com/spreadsheets/d/1nJV7uPuOPmonL2EwizOBMUzMkejYTkntrJV6YhPmfFA/edit?usp=sharing" target="_blank">spreadsheet</a> to start tracking schools which you can feel free to copy!
+    <br><br>
+
+    I had thought originally that I was only going to consider the quality of the science in where I applied but I think through this process of really envisioning where I was going to spend the next year made me prioritize location as well. It's up to you but personally I think I thrive where there are a lot of like-minded people who are, hopefully, smarter than me. The obvious choice then was to apply to all the main schools in Boston!
+    <h6 class="pb-3 mb-4 font-italic border-bottom"><br><br>
+         Networking with PI's: July through November
+     </h6>
+     This is the time that it started becoming really real! About this time I had compiled a list of schools and around three PI's for each. My list was the following with an asterisk next to the names of PI's I successfully contacted and corresponded with,
+     <ul>
+       <li>University of Washington: Adrienne Fairhall, Bingni Brunton*, Eric Shea-Brown*, Nick Steinmetz*, and Beth Buffalo</li>
+       <li>Harvard University: Chris Harvey*, Cengiz Pehlevan*, Sandeep Datta, Jan Drugowitsch, and Bence Olveczky</li>
+       <li>UC San Diego: Takaki Komiyama, Tatyana Sharpee, Terry Sejnowski, and Thomas Albright</li>
+       <li>Massachusetts Institute of Technology: James DiCarlo, Mehrdad Jazayeri, and Michale Fee</li>
+       <li>Columbia University: John P. Cunningham, Liam Paninski, Mark Churchland*, Randy Bruno, Stefano Fusi, Ken Miller, and Michael Shadlen</li>
+       <li>Boston University: Benjamin Scott*, Uri Eden, Jerry Chen*, and Chandramouli Chandrasekaran*</li>
+       <li>Stanford University: Scott Linderman*, Surya Ganguli, Krishna Shenoy, Dan Yamins, Will Newsome, Shaul Druckmann</li>
+       <li>New York University: Eero Simoncelli, John Rinzel, Wei Ji Ma, Xiao-Jing Wang, Christine Constantinople*</li>
+       <li>UC San Francisco: Joshua Berke, Vikas Sohaal, and Massimo Scanziani</li>
+       <li>The University of Oregon: Cris Niell, Luca Mazzucato*, Yashar Ahmadian, and David McCormick</li>
+       <li>Stony Brook University: Memming Park, Alfredo Fontanini, Giancarlo La Camera, and Braden Brinkman*</li>
+       <li>Princeton University: Michael Berry*, Bill Bialek, Carlos Brody, Jonathan Pillow*, David Tank</li>
+       <li>Carnegie Mellon/University of Pittsburgh: Sandra Kuhlman*, Eric Yttri, Matt Smith*, Caroline Runyan*, Aaron Batista, Steven Chase*, Byron Yu, and Brent Doiron*
+     </ul>
+   I highlighted which PI's I corresponded with just to point out that these professors are oftentimes very happy to chat with students so don't view it as a negatively thing to try to do even though, for many PI's, they will ignore such requests. I think overall I had an excellent success rate in terms of who responded over whom I reached out to (probably 80%ish). Many
+    of these professors I even got to meet in-person because I was going to SfN this year (happens around October). One thing you should notice is that every single new-PI (Steinmetz, Scott, Chandrasekaran, Linderman, Constantinople, Mazzucato, Brinkman, and Runyan) responded very positively and I at least chatted over Skype with them if not met them in-person. Half of these individuals were also
+    recruiting at SfN so it's a good idea to go if you can afford it even if you have nothing to present!
+    <br><br>
+
+    Now as to what you should write to them, you should always tailor your email to their work and demonstrate you have not only knowledge of what research they've conducted byt also where they'd like to head. Again, this goes back to being able to read their most recent work, grant summaries, and their "next step" projects. Also, make sure that you can envision how you might be uniquely positioned to
+    help them accomplish that and make that clear either by tying it into their previous work or by proposing a project/direction in their lab. My emails are a bit on the longer side but I figure that it's easier for them to just get all the info than to have to correspond back-and-forth. Here's some anonymized (real!) sample correspondances I had.
+
+    <br><br>
+    <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img class="d-block w-100" src="assets/img/email1a.jpg" alt="First slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="assets/img/email2a.jpg" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="assets/img/email3a.jpg" alt="Second slide">
+        </div>
+        <div class="carousel-item">
+          <img class="d-block w-100" src="assets/img/email4a.jpg" alt="Second slide">
+        </div>
+      <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="sr-only">Previous</span>
+      </a>
+      <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="sr-only">Next</span>
+      </a>
+    </div>
+
+    You can sort of see I really tried to demonstrate that I had some knowledge of their work ("Congratulations of the professorship . . ."; "my first introduction to your work was . . ."; "I've followed your work since . . .")
+    and how I might play a role in their lab (citing techniques I had some experience with that they had used in papers or else how they might use it in future ones).<br><br>
+
+    At this time, I <i>should</i> have also been asking for fee waivers but I was under the impression this was only for students that could demonstrate some financial need but this isn't at all true. One restriction you should be aware of is that
+    these waivers are distributed only really to those students that aren't international (at least for schools in the United States) but it doesn't hurt to ask as this may not be a universal rule.
+
+    <br><br> The rest of this month, I actually headed to SfN to contact PI's in-person which was very fruitful and I believe it was the reason I got interviews where I did and also ended up where I did. This is an expensive option that I am aware not all are privileged with
+    but can be great if you've been working and saved up some money. I stayed in the cheapest hostel I could find and ate fast food every day plus had red-eye flights with odd layovers. Try to get funding from your institution instead so you're not stuck begging your Allen Institute friends to buy you a meal
+    on their per diem food stipend or have to awkwardly shuffle past blatant drug deals trying to get home at night &#128578;
+
+   <br><br>
+
+
+   <h6 class="pb-3 mb-4 font-italic border-bottom">
+        Application Time &#128561;: November through January
+    </h6>
+
+<br><br>
+   <div id="carouselExampleControls" class="carousel slide" data-ride="carousel" data-interval="false">
+     <div class="carousel-inner">
+       <div class="carousel-item active">
+         <img class="d-block w-100" src="assets/img/CNBC.png" alt="First slide">
+       </div>
+       <div class="carousel-item">
+         <img class="d-block w-100" src="assets/img/princeton.png" alt="Second slide">
+       </div>
+       <div class="carousel-item">
+         <img class="d-block w-100" src="assets/img/UCSF.png" alt="Second slide">
+       </div>
+       <div class="carousel-item">
+         <img class="d-block w-100" src="assets/img/columbia.png" alt="Second slide">
+       </div>
+       <div class="carousel-item">
+         <img class="d-block w-100" src="assets/img/MIT.png" alt="Second slide">
+       </div>
+       <div class="carousel-item">
+         <img class="d-block w-100" src="assets/img/NYU.png" alt="Second slide">
+       </div>
+       <div class="carousel-item">
+         <img class="d-block w-100" src="assets/img/stanford.png" alt="Second slide">
+       </div>
+       <div class="carousel-item">
+         <img class="d-block w-100" src="assets/img/harvard.png" alt="Second slide">
+       </div>
+     </div>
+     <a class="carousel-control-prev" href="#carouselExampleControls" role="button" data-slide="prev">
+       <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+       <span class="sr-only">Previous</span>
+     </a>
+     <a class="carousel-control-next" href="#carouselExampleControls" role="button" data-slide="next">
+       <span class="carousel-control-next-icon" aria-hidden="true"></span>
+       <span class="sr-only">Next</span>
+     </a>
+   </div>
+ </div>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+  </body>
+  </html>
