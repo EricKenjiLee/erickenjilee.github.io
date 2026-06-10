@@ -1,200 +1,191 @@
-
 <!doctype html>
 <html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no, user-scalable=no">
-    <meta name="description" content="">
-    <meta name="author" content="">
-    <link rel="icon" href="assets/img/think.ico">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Eric Kenji Lee — Computational & Cognitive Neuroscience</title>
+  <meta name="description" content="Eric Kenji Lee is a computational and cognitive neuroscientist studying decision-making in the prefrontal cortex and the identification of neural cell types from electrophysiology.">
+  <meta name="author" content="Eric Kenji Lee">
+  <link rel="icon" href="assets/img/brain.ico">
 
-    <title>Kenji's Data Blog</title>
+  <!-- Open Graph -->
+  <meta property="og:title" content="Eric Kenji Lee">
+  <meta property="og:description" content="Decision-making in the prefrontal cortex & reading cell types from electrophysiology.">
+  <meta property="og:type" content="website">
 
-    <!-- Bootstrap core CSS -->
-    <link href="dist/css/bootstrap.css" rel="stylesheet">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,400;0,500;0,600;1,400&display=swap" rel="stylesheet">
+  <link href="assets/css/site.css" rel="stylesheet">
+</head>
+<body>
 
-    <!-- Custom styles for this template -->
-    <link href="https://fonts.googleapis.com/css?family=Playfair+Display:700,900" rel="stylesheet">
-    <link href="blog.css" rel="stylesheet">
+  <!-- ================= NAV (shared) ================= -->
+  <header class="nav">
+    <div class="nav-inner">
+      <a class="brand" href="index.html">Eric <span class="brand-mark">Kenji</span> Lee</a>
+      <button class="nav-toggle" aria-label="Menu" aria-expanded="false" aria-controls="nav-links">
+        <svg viewBox="0 0 24 24" fill="none" stroke-width="2" stroke-linecap="round"><line x1="3" y1="6" x2="21" y2="6"/><line x1="3" y1="12" x2="21" y2="12"/><line x1="3" y1="18" x2="21" y2="18"/></svg>
+      </button>
+      <nav class="nav-links" id="nav-links">
+        <a href="index.html" aria-current="page">Home</a>
+        <a href="research.html">Research</a>
+        <a href="publications.html">Publications</a>
+        <a href="writing.html">Writing</a>
+        <a href="outreach.html">Outreach</a>
+        <a class="nav-cta" href="assets/docs/Eric_Kenji_Lee_CV.pdf">CV ↓</a>
+      </nav>
+    </div>
+  </header>
 
-    <!-- Global Site Tag (gtag.js) - Google Analytics -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=UA-116317987-1"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
-
-      gtag('config', 'UA-116317987-1');
-    </script>
-
-    <!-- Hotjar Tracking Code for erickenjilee.github.io -->
-   <script>
-       (function(h,o,t,j,a,r){
-           h.hj=h.hj||function(){(h.hj.q=h.hj.q||[]).push(arguments)};
-           h._hjSettings={hjid:840104,hjsv:6};
-           a=o.getElementsByTagName('head')[0];
-           r=o.createElement('script');r.async=1;
-           r.src=t+h._hjSettings.hjid+j+h._hjSettings.hjsv;
-           a.appendChild(r);
-       })(window,document,'https://static.hotjar.com/c/hotjar-','.js?sv=');
-   </script>
-
-  </head>
-
-  <body>
-    <div class="container">
-      <header class="blog-header py-3">
-        <div class="row flex-nowrap justify-content-between align-items-center">
-           <div class="col-4 pt-1">
-            <a class="btn btn-secondary" href="CV.html">Curriculum Vitae</a>
-          </div>
-          <div class="text-center">
-            <a class="text-light"><h2><i>Neuroscience, Theoretically</i></h2></a>
-          </div>
-          <!-- <div class="col-4 d-flex justify-content-end align-items-center">
-            <div class="dropdown show">
-              <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink"
-                 data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                Connect With Me
-              </a>
-              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="https://www.linkedin.com/in/erickenjilee/">LinkedIn</a>
-                <a class="dropdown-item" href="https://twitter.com/KenjiEricLee">Twitter</a>
-                <a class="dropdown-item" href="https://github.com/EricKenjiLee">GitHub</a>
-                <a class="dropdown-item" href="https://medium.com/@erickenjilee">Medium</a>
-                <a class="dropdown-item" href="assets/docs/Eric_Lee_CV.pdf" download>Download my CV</a>
-              </div>
-            </div>
-          </div> -->
-        </div>
-      </header>
-
-<!-- TODO: Add links to pages-->
-      <!-- TODO: Add actual Nav Scroller -->
-      <div class="nav-scroller py-1 mb-2">
-        <nav class="nav d-flex justify-content-between">
-          <a class="p-2 text-info" href="aboutme.html"><h5>About Me</h5></a>
-          <a class="p-2 text-success" href="template.html"><h5>Research</h5></a>
-          <a class="p-2 text-warning" href="template.html"><h5>Personal Blog</h5></a>
-          <a class="p-2 text-danger" href="template.html"><h5>Outreach</h5></a>
-          <a class="p-2 text-purple" href="template.html"><h5>Gallery</h5></a>
-        </nav>
-      </div>
-
-      <div class="striped-border">
-      </div>
-
-      <!-- TODO: Add array tomographic image of cortex with parallax -->
-      <!--
-      <div class="container-fluid">
-        <img src="assets/img/arraytomography.jpg" width="100%" height="200px">
-        <div class="text-block">
-          <p style="font-size:3vw">
-          <i>Welcome to </i><b>Neuroscience, Theoretically</b><br>
-          <i>the data blog of Eric Kenji Lee</i>
-          </p>
-        </div>
-      </div> -->
-
-      <h3 class="pb-3 mb-4 font-italic border-bottom">
-        Pinned Blog Posts
-      </h3>
-      <div class="row mb-2">
-        <div class="col-md-6 constant_card_height">
-          <div class="card flex-md-row mb-4 box-shadow h-md-250 constant_card_height">
-            <div class="card-body d-flex flex-column align-items-start">
-              <strong class="d-inline-block mb-2 text-warning">Personal Blog</strong>
-              <h3 class="mb-0">
-                <a class="text-dark" href="ApplyingToGradSchool.html">Applying to Grad School</a>
-              </h3>
-              <div class="mb-1 text-muted">August 2nd, 2019</div>
-              <p class="card-text mb-auto text-dark">This is an account, as honestly as I can make it, of my process of applying to graduate school.</p>
-              <a href="ApplyingToGradSchool.html">Continue reading</a>
-            </div>
-          </div>
-        </div>
-        <div class="col-md-6 constant_card_height">
-          <div class="card flex-md-row mb-4 box-shadow h-md-250 constant_card_height">
-            <div class="card-body d-flex flex-column align-items-start">
-              <strong class="d-inline-block mb-2 text-success">Research</strong>
-              <h3 class="mb-0">
-                <a class="text-dark" href="WaveMAP.html">MAPping to Build a Better Lookup Table</a>
-              </h3>
-              <div class="mb-1 text-muted">December 24th, 2023</div>
-              <p class="card-text mb-auto text-dark">It's &#127877; Christmas Eve &#127876; and what better way to spend it than reflecting on the year's science.</p>
-              <a href="WaveMAP.html">Continue reading</a>
-            </div>
-          </div>
+  <!-- ================= HERO ================= -->
+  <!-- To use a static banner instead of the live graph, add:
+       data-hero-image="assets/img/banner.png" to the <section> below. -->
+  <section class="hero">
+    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+    <div class="hero-inner">
+      <div class="hero-content">
+        <p class="eyebrow rise">Computational &amp; Cognitive Neuroscience</p>
+        <h1 class="rise rise-2">Eric <span class="accent">Kenji</span> Lee</h1>
+        <p class="hero-tagline rise rise-3">
+          I study how the prefrontal cortex turns sensation into decision &mdash; and how to
+          recover the brain's cell types from the electrical signatures single neurons leave behind.
+        </p>
+        <div class="hero-actions rise rise-3">
+          <a class="btn btn-accent" href="research.html">Explore the research</a>
+          <a class="btn btn-ghost" href="assets/docs/Eric_Kenji_Lee_CV.pdf">Curriculum vitae</a>
         </div>
       </div>
     </div>
-    <br>
-    <main role="main" class="container">
-      <div class="row">
-        <div class="col-md-8 blog-main">
-          <h3 class="pb-3 mb-4 font-italic border-bottom">
-            A little about me . . .
-          </h3>
-          <p class="lead">
-            I'm currently a 5th year Ph.D. student in the Brain, Behavior, and Cognition program at Boston University and supported by the NINDS F31 fellowship.
-            I work in the lab of Chandramouli Chandrasekaran researching how decision-making unfolds in the prefrontal cortex of rhesus macaques.
-          <br><br>
-            I expect to graduate early in 2026 but am starting early and exploring potential postdocs working at the intersection of cell types and decision-making.
-            I'm especially interested in labs that leverage both electrophysiology and molecular techniques in order to study neural dynamics.
-          </p>
+  </section>
 
-          <h3 class="pb-3 mb-4 font-italic border-bottom">
-            Blogging Philosophy
-          </h3>
-          <p class="lead">
-            In keeping with the utility of a personal science website, I will <em>mostly</em> use this as a place to self-advertise.
-            However, one thing I've come to realize is that the <u>process</u> of
-            doing science is extremely different than it might appear on social media with every grant, single digit percentiled;
-            every person, on an NIH fellowship; and every paper, appearing from thin air, fully-realized.
-          </p>
-
-        </div><!-- /.blog-main -->
-
-        <aside class="col-md-4 blog-sidebar">
-          <div class="p-3 mb-3 bg-dark rounded">
-            <img src="assets/img/Eric_Lee_nobg.png" alt="Eric Lee's portrait."
-            style="max-width:100%;max-height:100%">
-            <p class="mb-0"><br>My name is Kenji Lee and I'm currently a Ph.D. student doing computational and cognitive neuroscience in the department of Psychological and Brain Sciences
-              at Boston University. Previously I was a Research Associate at the Allen Institute for Brain Science; I received my M.S. in Applied Mathematics
-               at the University Washington; and I obtained my B.S. in Biochemistry and Math with a minor in Neuroscience at the University of Puget Sound.</p><br>
+  <main>
+    <!-- ================= INTRO / BIO ================= -->
+    <section class="section">
+      <div class="container">
+        <div class="intro-grid">
+          <div class="intro-photo-wrap">
+            <img class="intro-photo" src="assets/img/Eric_Lee_profile.jpg" alt="Eric Kenji Lee">
           </div>
-          <b>
-          <div class="p-3">
-            <h4 class="font-italic">Archives</h4>
-            <ol class="list-unstyled mb-0">
-              <li><a href="#">January 2019</a></li>
-            </ol>
+          <div>
+            <p class="section-label">Hello</p>
+            <div class="stack lead">
+              <p>
+                I'm Kenji &mdash; a computational and cognitive neuroscientist who recently defended my
+                Ph.D. in the lab of <strong><a href="https://sites.bu.edu/chandlab/">Chandramouli
+                Chandrasekaran</a></strong> at Boston University, where my work was supported by an
+                NIH&nbsp;NINDS F31 fellowship.
+              </p>
+              <p>
+                My work asks how the prefrontal cortex of the rhesus macaque supports flexible
+                decision-making, working memory, and action &mdash; and, in parallel, how we can read out
+                neural <em>cell types</em> directly from the electrical fingerprints neurons leave in
+                extracellular recordings. To do that I pair large-scale Neuropixels electrophysiology with
+                tools from applied math: nonlinear dimensionality reduction, graph-based and multimodal
+                methods (like <a href="research.html">WaveMAP</a>), and low-rank recurrent neural networks.
+              </p>
+              <p>
+                Before BU I was a Research Associate at the Allen Institute for Brain Science, earned an
+                M.S. in Applied Mathematics at the University of Washington, and studied biochemistry and
+                math at the University of Puget Sound. I grew up in Hawai&#699;i, I think the
+                <a href="writing.html">process of doing science</a> deserves to be talked about as honestly
+                as the results, and you'll usually find me writing at a caf&eacute; somewhere in Boston.
+              </p>
+            </div>
           </div>
+        </div>
+      </div>
+    </section>
 
-        </aside><!-- /.blog-sidebar -->
+    <!-- ================= RECENT & UPCOMING ================= -->
+    <section class="section">
+      <div class="container prose">
+        <p class="section-label">Recent &amp; Upcoming</p>
+        <ul class="feed">
+          <li>
+            <span class="when">Now</span>
+            <p class="what">Recently defended my Ph.D. in the Chandrasekaran lab; now on the market for
+              postdocs at the intersection of <strong>cell types</strong> and <strong>decision-making</strong>.</p>
+          </li>
+          <li>
+            <span class="when">Mar 2026</span>
+            <p class="what">At <strong>COSYNE 2026</strong> in Lisbon: co-organizing the workshop
+              <em>&ldquo;Bridging cell types and spike trains&rdquo;</em> (with Josh Siegle) and joining the
+              mentorship panel.</p>
+          </li>
+          <li>
+            <span class="when">2026</span>
+            <p class="what">New in <span class="venue">Nature Communications</span>: <em>A multimodal
+              approach for visualizing and identifying electrophysiological cell types in vivo</em> (PhysMAP).</p>
+          </li>
+          <li>
+            <span class="when">2026</span>
+            <p class="what">New in <span class="venue">PNAS</span> (Carr et&nbsp;al.): <em>Neuropixels
+              reveal laminar microcircuit organization in monkey V1 in vivo.</em></p>
+          </li>
+          <li>
+            <span class="when">2025</span>
+            <p class="what"><span class="venue">ICLR</span> Spotlight (Yu et&nbsp;al.): <em>In vivo cell-type
+              and brain region classification via multimodal contrastive learning.</em></p>
+          </li>
+        </ul>
+        <p style="margin-top:22px"><a href="publications.html">See all publications &rarr;</a></p>
+      </div>
+    </section>
 
-      </div><!-- /.row -->
+    <!-- ================= HIGHLIGHTS ================= -->
+    <section class="section">
+      <div class="container">
+        <p class="section-label">A few starting points</p>
+        <div class="cards">
+          <article class="card">
+            <span class="card-kicker">Research</span>
+            <h3>Decisions in the prefrontal cortex</h3>
+            <p>How primate PFC turns sensation into action, read out with large-scale electrophysiology
+              and dynamical models of population activity.</p>
+            <a class="card-link" href="research.html">What I study &rarr;</a>
+          </article>
+          <article class="card">
+            <span class="card-kicker">Method</span>
+            <h3>WaveMAP &amp; cell types</h3>
+            <p>Identifying putative cell types from the shapes of extracellular spikes &mdash; from the
+              original <em>eLife</em> paper to a protocol and a multimodal sequel.</p>
+            <a class="card-link" href="research.html#celltypes">How it works &rarr;</a>
+          </article>
+          <article class="card">
+            <span class="card-kicker">Writing</span>
+            <h3>On doing science, honestly</h3>
+            <p>Field notes on the parts that don't make it into papers: applying to grad school,
+              interviews, and what a project actually feels like.</p>
+            <a class="card-link" href="writing.html">Read along &rarr;</a>
+          </article>
+        </div>
+      </div>
+    </section>
+  </main>
 
-    </main><!-- /.container -->
+  <!-- ================= FOOTER (shared) ================= -->
+  <footer class="footer">
+    <div class="footer-inner">
+      <h2>Let's talk neuroscience.</h2>
+      <p>Always happy to hear from prospective collaborators, mentees, and anyone curious about cell
+        types, decision-making, or the road through grad school.</p>
+      <div class="social">
+        <a href="mailto:kenjilee@bu.edu" aria-label="Email" title="kenjilee@bu.edu"><svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg></a>
+        <!-- TODO: replace with your Google Scholar profile URL -->
+        <a href="https://scholar.google.com/citations?user=9IEHT7wAAAAJ&amp;hl=en" aria-label="Google Scholar" title="Google Scholar"><svg viewBox="0 0 24 24"><path d="M5.242 13.769L0 9.5 12 0l12 9.5-5.242 4.269C17.548 11.249 14.978 9.5 12 9.5c-2.977 0-5.548 1.748-6.758 4.269zM12 10a7 7 0 1 0 0 14 7 7 0 0 0 0-14z"/></svg></a>
+        <a href="https://github.com/EricKenjiLee" aria-label="GitHub" title="GitHub"><svg viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23A11.509 11.509 0 0112 5.803c1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222 0 1.606-.014 2.898-.014 3.293 0 .322.216.694.825.576C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></svg></a>
+        <a href="https://www.linkedin.com/in/erickenjilee/" aria-label="LinkedIn" title="LinkedIn"><svg viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.225 0z"/></svg></a>
+        <a href="https://bsky.app/profile/kenjilee.bsky.social" aria-label="Bluesky" title="Bluesky"><svg viewBox="0 0 24 24"><path d="M12 10.8c-1.087-2.114-4.046-6.053-6.798-7.995C2.566.944 1.561 1.266.902 1.565.139 1.908 0 3.08 0 3.768c0 .69.378 5.65.624 6.479.815 2.736 3.713 3.66 6.383 3.364.136-.02.275-.039.415-.056-.138.022-.276.04-.415.056-3.912.58-7.387 2.005-2.83 7.078 5.013 5.19 6.87-1.113 7.823-4.308.953 3.195 2.05 9.271 7.733 4.308 4.267-4.308 1.172-6.498-2.74-7.078a8.741 8.741 0 0 1-.415-.056c.14.017.279.036.415.056 2.67.297 5.568-.628 6.383-3.364.246-.828.624-5.79.624-6.478 0-.69-.139-1.861-.902-2.206-.659-.298-1.664-.62-4.3 1.24C16.046 4.748 13.087 8.687 12 10.8Z"/></svg></a>
+        <a href="https://twitter.com/KenjiEricLee" aria-label="X / Twitter" title="X / Twitter"><svg viewBox="0 0 24 24"><path d="M18.901 1.153h3.68l-8.04 9.19L24 22.846h-7.406l-5.8-7.584-6.638 7.584H.474l8.6-9.83L0 1.154h7.594l5.243 6.932ZM17.61 20.644h2.039L6.486 3.24H4.298Z"/></svg></a>
+      </div>
+      <div class="footer-bottom">
+        <span>&copy; 2026 Eric Kenji Lee</span>
+        <span>Boston, MA &middot; <a href="mailto:kenjilee@bu.edu">kenjilee@bu.edu</a></span>
+      </div>
+    </div>
+  </footer>
 
-
-    <!-- Bootstrap core JavaScript
-    ================================================== -->
-    <!-- Placed at the end of the document so the pages load faster -->
-    <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-    <script>window.jQuery || document.write('<script src="assets/js/vendor/jquery-slim.min.js"><\/script>')</script>
-    <script src="assets/js/vendor/popper.min.js"></script>
-    <script src="dist/js/bootstrap.min.js"></script>
-    <script src="assets/js/vendor/holder.min.js"></script>
-    <script>
-      Holder.addTheme('thumb', {
-        bg: '#55595c',
-        fg: '#eceeef',
-        text: 'Thumbnail'
-      });
-    </script>
-  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  </body>
+  <script src="assets/js/site.js"></script>
+</body>
 </html>
