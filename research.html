@@ -35,7 +35,7 @@
         <p class="lead prose">
           I'm interested in how the brain holds a decision in mind and acts on it &mdash; and in the
           quieter problem underneath it: <em>who are the neurons doing the computing?</em> My work moves
-          between large-scale recordings in behaving primates and the applied-math tools needed to make
+          between large-scale recordings in behaving primates and the applied math/machine learning tools needed to make
           sense of them.
         </p>
       </div>
@@ -51,15 +51,15 @@
             <h2>How prefrontal cortex commits to a choice</h2>
             <div class="stack">
               <p>
-                I train rhesus macaques on perceptual and context-dependent decision-making tasks and
-                record from dorsolateral prefrontal cortex with laminar and Neuropixels probes &mdash;
-                hundreds of sessions of extracellular activity while the animal weighs evidence, holds it
-                in working memory, and selects an action.
+                I train monkeys (<i>Macaca mulatta</i>) on perceptual and context-dependent decision-making tasks while
+                recording from dorsolateral prefrontal cortex with laminar and Neuropixels probes. Across
+                hundreds of sessions, I recorded extracellular spiking activity while the animal deliberates on evidence, holds it
+                in working memory, and computes an action.
               </p>
               <p>
                 Rather than reading single cells one at a time, I treat the population as a dynamical
-                system and ask about its <em>computational geometry</em>: how stimulus, memory, and motor
-                signals are arranged in neural state space, and how that arrangement supports flexible
+                system and ask how its <em>computational geometry</em> relates to how stimulus, memory, and motor
+                signals are computed in neural state space, and how that arrangement supports flexible
                 behavior. To test mechanism, I model the same tasks with low-rank recurrent neural
                 networks and compare them to the data.
               </p>
@@ -89,18 +89,17 @@
             <h2>Reading cell types from a spike's shape</h2>
             <div class="stack">
               <p>
-                Extracellular electrophysiology is powerful but nearly blind to cell identity: every
-                neuron is just a voltage blip. With <strong>WaveMAP</strong>, I showed that nonlinear
+                Extracellular electrophysiology is powerful in its scaling but is traditionally nearly blind to cell identity: every
+                neuron is expressed as an array of spike times. With <strong>WaveMAP</strong>, I showed that nonlinear
                 dimensionality reduction of action-potential waveforms recovers a rich diversity of
-                putative cell types &mdash; structure that lines up with firing properties and, increasingly,
-                with molecular ground truth (<em>eLife</em>, 2021; <em>STAR&nbsp;Protocols</em>, 2023).
+                putative cell types. This is structure that lines up with known cell type physiologies (<em>eLife</em>, 2021; <em>STAR&nbsp;Protocols</em>, 2023).
               </p>
               <p>
-                Since then I've pushed toward <em>multimodal</em> identification &mdash; composing waveform,
+                Since then I've pushed toward <em>multimodal</em> identification of molecular cell types &mdash; composing waveform,
                 firing, and anatomical signals into a single graph-based view of cell-type space
-                (<em>Nature&nbsp;Communications</em>, 2026) and learning cross-modal representations with
+                (<em>Nature&nbsp;Communications</em>, 2026) and contributed to efforts in learning cross-modal representations with
                 contrastive methods (<em>ICLR</em> Spotlight, 2025). The goal: turn a spike train back into
-                a labeled, interpretable population.
+                a labeled, interpretable population for cell-type-aware neural dynamics. On this topic I coordinated with Josh Siegle the first <a href="https://celltypestospikesworkshop.github.io/2026/">COSYNE workshop</a> on cell-type identification from electrophysiology.
               </p>
             </div>
           </div>
@@ -130,20 +129,14 @@
         <div class="theme">
           <div class="theme-text">
             <p class="section-label">Methods &amp; tools</p>
-            <h2>An applied-math toolkit for neural data</h2>
+            <h2>Applied math and machine learning for neural dynamics</h2>
             <div class="stack">
               <p>
-                Threaded through everything is a methodological interest, rooted in my applied-math
-                training: graph-based and nonlinear dimensionality reduction, multimodal data integration,
-                contrastive representation learning, and low-rank RNNs as interpretable models of
-                computation.
+                Threaded through everything is my approach of matching modern tools to scientific questions: graph-based methods and multimodal data integration to identify cell types;
+                 dimensionality reduction and low-rank RNNs to interpret neural computation.
               </p>
               <p>
-                I care about making these usable by others &mdash; releasing protocols and open tools so a
-                method doesn't end at the figure. My earlier work at the Allen Institute on the mouse
-                visual cortex (2-photon and intrinsic-signal imaging) still shapes how I think about
-                standardized, large-scale physiology.
-              </p>
+                I also care about making these usable by others &mdash; releasing protocols and open datasets has led to adoption of my tools for everything from brain organoids to human brains.
               <p><a href="publications.html">Browse the full publication list &rarr;</a></p>
             </div>
           </div>
