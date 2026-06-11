@@ -38,11 +38,9 @@
     </div>
   </header>
 
-  <!-- ================= HERO ================= -->
-  <!-- To use a static banner instead of the live graph, add:
-       data-hero-image="assets/img/banner.png" to the <section> below. -->
-  <section class="hero">
-    <canvas id="hero-canvas" aria-hidden="true"></canvas>
+  <!-- ================= HERO (WaveMAP data viz — Direction 3) ================= -->
+  <section class="hero hero-wm">
+    <canvas id="wm-embed" aria-hidden="true"></canvas>
     <div class="hero-inner">
       <div class="hero-content">
         <p class="eyebrow rise">Computational &amp; Cognitive Neuroscience</p>
@@ -55,8 +53,13 @@
           <a class="btn btn-accent" href="research.html">Explore the research</a>
           <a class="btn btn-ghost" href="assets/docs/Eric_Kenji_Lee_CV.pdf">Curriculum vitae</a>
         </div>
+        <p class="hero-hint rise rise-3">Each point is one of 625 real neurons from my WaveMAP study &mdash; <b>hover one to read its spike</b>.</p>
       </div>
     </div>
+    <figure class="wm-inset" id="wm-inset">
+      <canvas id="wm-wave"></canvas>
+      <figcaption id="wm-label">&hellip;</figcaption>
+    </figure>
   </section>
 
   <main>
@@ -187,5 +190,6 @@
   </footer>
 
   <script src="assets/js/site.js"></script>
+  <script src="assets/js/hero-wavemap.js"></script>
 </body>
 </html>
