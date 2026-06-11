@@ -17,29 +17,30 @@
   var insetWrap = document.getElementById("wm-inset");
   var reduce = window.matchMedia("(prefers-reduced-motion: reduce)").matches;
 
-  // cluster colormap encodes spike width: narrow (blue) -> broad (red).
-  // Sampled to however many clusters the data has (ECG decides the count).
-  var RAMP = ["#2563eb", "#06b6d4", "#10b981", "#eab308", "#f97316", "#ef4444"];
-  function hx(h) { h = h.replace("#", ""); return [parseInt(h.slice(0, 2), 16), parseInt(h.slice(2, 4), 16), parseInt(h.slice(4, 6), 16)]; }
-  function xh(c) { return "#" + c.map(function (v) { return ("0" + Math.max(0, Math.min(255, Math.round(v))).toString(16)).slice(-2); }).join(""); }
-  function palette(K) {
-    var r = RAMP.map(hx);
-    if (K <= 1) return [RAMP[0]];
-    var out = [];
-    for (var i = 0; i < K; i++) {
-      var t = i / (K - 1) * (r.length - 1), lo = Math.floor(t), hi = Math.min(lo + 1, r.length - 1), f = t - lo;
-      out.push(xh([0, 1, 2].map(function (j) { return r[lo][j] + (r[hi][j] - r[lo][j]) * f; })));
-    }
-    return out;
+  // Turbo colormap (Google / Anton Mikhailov polynomial approximation) — the same
+  // colormap the WaveMAP paper uses. Cluster c maps to turbo(c/(K-1)), narrow->broad.
+  function turbo(x) {
+    x = Math.max(0, Math.min(1, x));
+    var v4 = [1, x, x * x, x * x * x], v2 = [x * x * x * x, x * x * x * x * x];
+    function d4(a, b) { return a[0] * b[0] + a[1] * b[1] + a[2] * b[2] + a[3] * b[3]; }
+    function d2(a, b) { return a[0] * b[0] + a[1] * b[1]; }
+    var R = d4(v4, [0.13572138, 4.61539260, -42.66032258, 132.13108234]) + d2(v2, [-152.94239396, 59.28637943]);
+    var G = d4(v4, [0.09140261, 2.19418839, 4.84296658, -14.18503333]) + d2(v2, [4.27729857, 2.82956604]);
+    var B = d4(v4, [0.10667330, 12.64194608, -60.58204836, 110.36276771]) + d2(v2, [-89.90310912, 27.34824973]);
+    function ch(v) { v = Math.max(0, Math.min(1, v)) * 0.87; return ("0" + Math.round(v * 255).toString(16)).slice(-2); }
+    return "#" + ch(R) + ch(G) + ch(B);
   }
-  var PAL = RAMP.slice();
-  function colorFor(c) { return PAL[c % PAL.length]; }
+  // sample Turbo over a trimmed range so we skip the near-black indigo/maroon ends
+  function buildPalette(K) { var LO = 0.18, HI = 0.92, o = []; for (var i = 0; i < K; i++) o.push(turbo(K > 1 ? LO + i / (K - 1) * (HI - LO) : (LO + HI) / 2)); return o; }
+  var PAL = [];
+  function colorFor(c) { return PAL[c % PAL.length] || "#2563eb"; }
+  var OMIT = [7];   // clusters hidden purely for composition
 
   function theme() {
     var cs = getComputedStyle(document.documentElement);
     function v(n, f) { var x = cs.getPropertyValue(n).trim(); return x || f; }
     return {
-      edge: v("--hero-edge-inter", "rgba(37,99,235,0.18)"),
+      edge: "rgba(26,40,78,0.42)",   // darker connecting lines for the data hero
       ink:  v("--ink", "#14171c")
     };
   }
@@ -48,7 +49,7 @@
   var data;
   try { data = await fetch("assets/data/wavemap.json").then(function (r) { return r.json(); }); }
   catch (e) { return; }
-  PAL = palette(data.clusters || 6);
+  PAL = buildPalette(data.clusters || 6);
 
   function t2p(w) {
     var tr = 0, i;
@@ -69,7 +70,7 @@
     var x0 = wide ? W * 0.42 : W * 0.05, x1 = W * 0.98;
     var y0 = H * 0.13, y1 = H * 0.90;
     P = data.points.map(function (p) {
-      return { sx: x0 + (-p.x * 0.5 + 0.5) * (x1 - x0), sy: y0 + (p.y * 0.5 + 0.5) * (y1 - y0), c: p.c, w: p.w };
+      return { sx: x0 + (-p.x * 0.5 + 0.5) * (x1 - x0), sy: y0 + (p.y * 0.5 + 0.5) * (y1 - y0), c: p.c, w: p.w, om: OMIT.indexOf(p.c) >= 0 };
     });
   }
 
@@ -106,12 +107,14 @@
     ctx.strokeStyle = TH.edge; ctx.lineWidth = 0.7; ctx.beginPath();
     for (var e = 0; e < data.edges.length; e++) {
       var pa = P[data.edges[e][0]], pb = P[data.edges[e][1]];
+      if (pa.om || pb.om) continue;
       ctx.moveTo(pa.sx, pa.sy); ctx.lineTo(pb.sx, pb.sy);
     }
     ctx.stroke();
     for (var i = 0; i < P.length; i++) {
       var p = P[i];
-      ctx.beginPath(); ctx.arc(p.sx, p.sy, i === active ? 5 : 2.6, 0, 6.2832);
+      if (p.om) continue;
+      ctx.beginPath(); ctx.arc(p.sx, p.sy, i === active ? 6 : 3.3, 0, 6.2832);
       ctx.fillStyle = colorFor(p.c); ctx.globalAlpha = i === active ? 1 : 0.82; ctx.fill();
     }
     ctx.globalAlpha = 1;
@@ -125,8 +128,9 @@
     }
   }
 
+  function randLive() { var i, g = 0; do { i = Math.floor(Math.random() * P.length); g++; } while (P[i] && P[i].om && g < 60); return i; }
   function frame(t) {
-    if (!hoverLock && !reduce && t > nextTour) { active = Math.floor(Math.random() * P.length); drawInset(); nextTour = t + 2200; }
+    if (!hoverLock && !reduce && t > nextTour) { active = randLive(); drawInset(); nextTour = t + 2200; }
     draw();
     raf = requestAnimationFrame(frame);
   }
@@ -135,6 +139,7 @@
     var hr = hero.getBoundingClientRect(), mx = e.clientX - hr.left, my = e.clientY - hr.top;
     var best = -1, bd = 26 * 26;
     for (var i = 0; i < P.length; i++) {
+      if (P[i].om) continue;
       var dx = P[i].sx - mx, dy = P[i].sy - my, d = dx * dx + dy * dy;
       if (d < bd) { bd = d; best = i; }
     }
@@ -144,7 +149,7 @@
 
   function start() {
     TH = theme(); layout();
-    if (active < 0) active = Math.floor(Math.random() * P.length);
+    if (active < 0) active = randLive();
     drawInset();
     if (raf) cancelAnimationFrame(raf);
     if (reduce) draw(); else { nextTour = 0; raf = requestAnimationFrame(frame); }
