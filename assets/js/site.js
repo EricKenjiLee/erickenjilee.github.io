@@ -22,6 +22,16 @@
     });
   }
 
+  /* ---------- Scroll reveal ---------- */
+  if ("IntersectionObserver" in window) {
+    var io = new IntersectionObserver(function (entries) {
+      entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add("in"); io.unobserve(e.target); } });
+    }, { threshold: 0.12, rootMargin: "0px 0px -8% 0px" });
+    document.querySelectorAll(".reveal, .sketch-bg").forEach(function (el) { io.observe(el); });
+  } else {
+    document.querySelectorAll(".reveal, .sketch-bg").forEach(function (el) { el.classList.add("in"); });
+  }
+
   /* ---------- Hero network graph ---------- */
   var canvas = document.getElementById("hero-canvas");
   if (!canvas) return;

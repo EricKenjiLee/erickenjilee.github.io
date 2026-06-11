@@ -51,6 +51,18 @@
   catch (e) { return; }
   PAL = buildPalette(data.clusters || 6);
 
+  // Each WaveMAP cluster carries a stable cell-type character from the median
+  // trough-to-peak (in samples) of its own member waveforms — real data, computed
+  // once. Individual neurons then read out their own precise value around it.
+  // Thresholds ~0.35 ms (10.5 samp) and ~0.45 ms (13.5 samp) at 30 kHz.
+  var clusterKind = (function () {
+    var bins = {}, i, c;
+    for (i = 0; i < data.points.length; i++) { c = data.points[i].c; (bins[c] = bins[c] || []).push(t2p(data.points[i].w)); }
+    var out = {};
+    for (c in bins) { var a = bins[c].sort(function (x, y) { return x - y; }), m = a[a.length >> 1]; out[c] = m < 10.5 ? "narrow-spiking" : (m >= 13.5 ? "broad-spiking" : "intermediate"); }
+    return out;
+  })();
+
   function t2p(w) {
     var tr = 0, i;
     for (i = 1; i < w.length; i++) if (w[i] < w[tr]) tr = i;
@@ -67,7 +79,7 @@
     host.style.width = W + "px"; host.style.height = H + "px";
     ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
     var wide = W > 820;
-    var x0 = wide ? W * 0.42 : W * 0.05, x1 = W * 0.98;
+    var x0 = wide ? W * 0.38 : W * 0.04, x1 = W * 0.94;
     var y0 = H * 0.13, y1 = H * 0.90;
     P = data.points.map(function (p) {
       return { sx: x0 + (-p.x * 0.5 + 0.5) * (x1 - x0), sy: y0 + (p.y * 0.5 + 0.5) * (y1 - y0), c: p.c, w: p.w, om: OMIT.indexOf(p.c) >= 0 };
@@ -76,6 +88,7 @@
 
   var active = -1, hoverLock = false, nextTour = 0, raf = null;
 
+  var FS = 30000;  // sampling rate (Hz)
   function drawInset() {
     if (active < 0) { insetWrap.style.opacity = 0; return; }
     insetWrap.style.opacity = 1;
@@ -83,22 +96,46 @@
     var iw = inset.clientWidth, ih = inset.clientHeight;
     inset.width = iw * dpr; inset.height = ih * dpr; ictx.setTransform(dpr, 0, 0, dpr, 0, 0);
     ictx.clearRect(0, 0, iw, ih);
-    var pad = 10, mn = Math.min.apply(null, w), mx = Math.max.apply(null, w), rng = (mx - mn) || 1;
-    // zero baseline
-    ictx.strokeStyle = "rgba(20,23,28,.12)"; ictx.lineWidth = 1;
-    var zy = pad + (1 - (0 - mn) / rng) * (ih - 2 * pad);
-    ictx.beginPath(); ictx.moveTo(pad, zy); ictx.lineTo(iw - pad, zy); ictx.stroke();
+    var mn = Math.min.apply(null, w), mx = Math.max.apply(null, w), rng = (mx - mn) || 1;
+    var padX = iw * 0.17, plotW = iw - 2 * padX;     // narrower waveform
+    var padT = 8, botBand = 32, plotH = ih - padT - botBand;
+    function X(i) { return padX + i / (n - 1) * plotW; }
+    function Y(v) { return padT + (1 - (v - mn) / rng) * plotH; }
     // waveform
-    ictx.strokeStyle = col; ictx.lineWidth = 2.4; ictx.lineJoin = "round"; ictx.beginPath();
-    for (var i = 0; i < n; i++) {
-      var xx = pad + i / (n - 1) * (iw - 2 * pad);
-      var yy = pad + (1 - (w[i] - mn) / rng) * (ih - 2 * pad);
-      if (i) ictx.lineTo(xx, yy); else ictx.moveTo(xx, yy);
-    }
+    ictx.strokeStyle = col; ictx.lineWidth = 1.6; ictx.lineJoin = "round"; ictx.beginPath();
+    for (var i = 0; i < n; i++) { if (i) ictx.lineTo(X(i), Y(w[i])); else ictx.moveTo(X(i), Y(w[i])); }
     ictx.stroke();
-    var K = data.clusters || 6;
-    var kind = p.c < K * 0.3 ? "narrow-spiking" : (p.c >= K * 0.66 ? "broad-spiking" : "intermediate");
-    labelEl.innerHTML = "<b>Cluster " + (p.c + 1) + "</b> · " + kind + " · " + t2p(w) + "-sample trough-to-peak";
+    // trough (min) and post-hyperpolarization peak (max after the trough)
+    var tr = 0, j; for (j = 1; j < n; j++) if (w[j] < w[tr]) tr = j;
+    var pk = tr; for (j = tr; j < n; j++) if (w[j] > w[pk]) pk = j;
+    // markers
+    ictx.fillStyle = "#1c1c22";
+    ictx.beginPath(); ictx.arc(X(tr), Y(w[tr]), 2.4, 0, 6.2832); ictx.fill();
+    ictx.beginPath(); ictx.arc(X(pk), Y(w[pk]), 2.4, 0, 6.2832); ictx.fill();
+    // droplines from each marker down to a shared dimension line + bracket with end ticks
+    var yL = ih - 11;
+    ictx.strokeStyle = "rgba(28,28,34,.40)"; ictx.lineWidth = 1;
+    ictx.setLineDash([2, 2]);
+    ictx.beginPath();
+    ictx.moveTo(X(tr), Y(w[tr]) + 4); ictx.lineTo(X(tr), yL);
+    ictx.moveTo(X(pk), Y(w[pk]) + 4); ictx.lineTo(X(pk), yL);
+    ictx.stroke(); ictx.setLineDash([]);
+    ictx.beginPath();
+    ictx.moveTo(X(tr), yL); ictx.lineTo(X(pk), yL);
+    ictx.moveTo(X(tr), yL - 3); ictx.lineTo(X(tr), yL + 3);
+    ictx.moveTo(X(pk), yL - 3); ictx.lineTo(X(pk), yL + 3);
+    ictx.stroke();
+    // trough-to-peak duration label, on a white pill so it stays legible over the droplines
+    var ms = (pk - tr) / FS * 1000, txt = ms.toFixed(2) + " ms";
+    ictx.font = "italic 10px Georgia, serif"; ictx.textAlign = "center"; ictx.textBaseline = "alphabetic";
+    var lx = (X(tr) + X(pk)) / 2, ly = yL - 5, tw = ictx.measureText(txt).width, lp = 3;
+    ictx.fillStyle = "rgba(255,255,255,.92)";
+    if (ictx.roundRect) { ictx.beginPath(); ictx.roundRect(lx - tw / 2 - lp, ly - 9, tw + 2 * lp, 12, 3); ictx.fill(); }
+    else { ictx.fillRect(lx - tw / 2 - lp, ly - 9, tw + 2 * lp, 12); }
+    ictx.fillStyle = "#33312e"; ictx.fillText(txt, lx, ly);
+    // caption — descriptor is the cluster's fixed character (stable per cluster),
+    // shown next to this neuron's own measured trough-to-peak above.
+    labelEl.innerHTML = "<b>Cluster " + (p.c + 1) + "</b> · " + (clusterKind[p.c] || "intermediate");
     labelEl.style.color = col;
   }
 
@@ -130,7 +167,7 @@
 
   function randLive() { var i, g = 0; do { i = Math.floor(Math.random() * P.length); g++; } while (P[i] && P[i].om && g < 60); return i; }
   function frame(t) {
-    if (!hoverLock && !reduce && t > nextTour) { active = randLive(); drawInset(); nextTour = t + 2200; }
+    if (!hoverLock && !reduce && t > nextTour) { active = randLive(); drawInset(); nextTour = t + 3800; }
     draw();
     raf = requestAnimationFrame(frame);
   }
