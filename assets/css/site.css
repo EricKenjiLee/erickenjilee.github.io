@@ -371,10 +371,12 @@ hr.rule { border: 0; border-top: 1px solid var(--faint); margin: 40px 0; }
 /* faint hand-drawn watermarks, half-tucked behind the text (out of flow) */
 .has-sketch { position: relative; overflow: hidden; }
 .has-sketch > .container { position: relative; z-index: 1; }
-.sketch-bg { position: absolute; z-index: 0; pointer-events: none; opacity: 0; transform: translateY(28px); transition: opacity 1.1s ease, transform 1.1s cubic-bezier(.2,.7,.2,1); }
+.sketch-bg { position: absolute; z-index: -1; pointer-events: none; opacity: 0; transform: translateY(28px); transition: opacity 1.1s ease, transform 1.1s cubic-bezier(.2,.7,.2,1); }
 .sketch-bg.in { opacity: .18; transform: none; }
 .sketch-brain { width: min(368px, 38vw); right: -5%; top: 10%; }
 .sketch-task  { width: min(352px, 37vw); right: -4%; left: auto; top: 0; }
-.sketch-probe { left: 2%; right: auto; width: min(1060px, 96vw); top: 0; }
+/* center the probe on the middle card (its ink sits right-of-center in the image,
+   so bias the left offset to ~0.64 of the width to land the body on the middle panel) */
+.sketch-probe { left: calc(50% - 0.64 * min(1060px, 96vw)); right: auto; width: min(1060px, 96vw); top: 0; }
 @media (prefers-reduced-motion: reduce) { .sketch-bg { opacity: .15; transform: none; transition: none; } }
-@media (max-width: 760px) { .sketch-bg { opacity: .08; } .sketch-probe { width: 92vw; right: -24%; } .sketch-brain { width: 74vw; } .sketch-task { width: 66vw; } }
+@media (max-width: 760px) { .sketch-bg { opacity: .08; } .sketch-brain { width: 74vw; } .sketch-task { width: 66vw; } }
