@@ -86,7 +86,7 @@
     });
   }
 
-  var active = -1, hoverLock = false, nextTour = 0, raf = null;
+  var active = -1, hoverLock = false, nextTour = 0, raf = null, mobile = false;
 
   var FS = 30000;  // sampling rate (Hz)
   function drawInset() {
@@ -173,6 +173,7 @@
   }
 
   hero.addEventListener("mousemove", function (e) {
+    if (mobile) return;                 // non-interactive on mobile
     var hr = hero.getBoundingClientRect(), mx = e.clientX - hr.left, my = e.clientY - hr.top;
     var best = -1, bd = 26 * 26;
     for (var i = 0; i < P.length; i++) {
@@ -186,9 +187,13 @@
 
   function start() {
     TH = theme(); layout();
+    mobile = window.matchMedia("(max-width: 760px)").matches;
+    if (raf) cancelAnimationFrame(raf);
+    if (mobile) {            // mobile: a faint, static, non-interactive backdrop (CSS fades it out)
+      active = -1; drawInset(); draw(); return;
+    }
     if (active < 0) active = randLive();
     drawInset();
-    if (raf) cancelAnimationFrame(raf);
     if (reduce) draw(); else { nextTour = 0; raf = requestAnimationFrame(frame); }
   }
   var rt;

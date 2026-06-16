@@ -199,6 +199,8 @@ h3 { font-size: 1.25rem; margin: 0 0 .4em; }
 .wm-inset canvas { position: static; inset: auto; width: 100%; height: 110px; display: block; }
 .wm-inset figcaption { font-size: .74rem; line-height: 1.4; margin-top: 8px; color: var(--ink); text-align: center; }
 @media (max-width: 820px) { .wm-inset { right: 12px; bottom: 12px; width: 180px; } }
+/* mobile: quiet the data hero — faint, whited-out, non-interactive backdrop */
+@media (max-width: 760px) { #wm-embed { opacity: .22; } #wm-inset { display: none; } }
 
 /* buttons */
 .btn {
@@ -380,3 +382,16 @@ hr.rule { border: 0; border-top: 1px solid var(--faint); margin: 40px 0; }
 .sketch-probe { left: calc(50% - 0.64 * min(1060px, 96vw)); right: auto; width: min(1060px, 96vw); top: 0; }
 @media (prefers-reduced-motion: reduce) { .sketch-bg { opacity: .15; transform: none; transition: none; } }
 @media (max-width: 760px) { .sketch-bg { opacity: .08; } .sketch-brain { width: 74vw; } .sketch-task { width: 66vw; } }
+/* mobile: the cards stack vertically, so rotate the probe toward vertical and stretch
+   it to run down behind all three stacked panels (overshoot the column, clipped by the
+   section). Both .sketch-probe and .sketch-probe.in are set so the reveal keeps the angle. */
+@media (max-width: 760px) {
+  .sketch-probe, .sketch-probe.in {
+    left: 70%; top: 50%; right: auto;   /* nudged right of center */
+    width: 800px; max-width: none;   /* scaled just enough to sit behind all three stacked cards (not fill them) */
+    transform: translate(-50%, -50%) rotate(-68deg);
+    transform-origin: center center;
+  }
+  /* stretched thin, so lift the opacity to stay visible behind the stacked cards */
+  .sketch-probe.in { opacity: .35; }
+}
