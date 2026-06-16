@@ -63,6 +63,14 @@
     return out;
   })();
 
+  // data bounds — for an aspect-preserving (uniform-scale) layout
+  var BX0 = Infinity, BX1 = -Infinity, BY0 = Infinity, BY1 = -Infinity;
+  data.points.forEach(function (p) {
+    if (p.x < BX0) BX0 = p.x; if (p.x > BX1) BX1 = p.x;
+    if (p.y < BY0) BY0 = p.y; if (p.y > BY1) BY1 = p.y;
+  });
+  var BW = (BX1 - BX0) || 1, BH = (BY1 - BY0) || 1;
+
   function t2p(w) {
     var tr = 0, i;
     for (i = 1; i < w.length; i++) if (w[i] < w[tr]) tr = i;
@@ -81,8 +89,14 @@
     var wide = W > 820;
     var x0 = wide ? W * 0.38 : W * 0.04, x1 = W * 0.94;
     var y0 = H * 0.13, y1 = H * 0.90;
+    // Map the embedding with a single uniform scale so the UMAP keeps its aspect
+    // ratio (no horizontal stretch on wide screens); center it in the available box.
+    var GROW = 1.25;   // 1.0 = fit-to-box; >1 enlarges the embedding (overflow clipped by the hero)
+    var s = Math.min((x1 - x0) / BW, (y1 - y0) / BH) * GROW;
+    var ox = x0 + ((x1 - x0) - BW * s) / 2;
+    var oy = y0 + ((y1 - y0) - BH * s) / 2 - H * 0.06;   // centered, nudged up a bit
     P = data.points.map(function (p) {
-      return { sx: x0 + (-p.x * 0.5 + 0.5) * (x1 - x0), sy: y0 + (p.y * 0.5 + 0.5) * (y1 - y0), c: p.c, w: p.w, om: OMIT.indexOf(p.c) >= 0 };
+      return { sx: ox + (BX1 - p.x) * s, sy: oy + (p.y - BY0) * s, c: p.c, w: p.w, om: OMIT.indexOf(p.c) >= 0 };
     });
   }
 
