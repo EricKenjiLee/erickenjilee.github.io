@@ -98,6 +98,13 @@
     P = data.points.map(function (p) {
       return { sx: ox + (BX1 - p.x) * s, sy: oy + (p.y - BY0) * s, c: p.c, w: p.w, om: OMIT.indexOf(p.c) >= 0 };
     });
+    // Keep the waveform readout beside the embedding instead of pinned to the
+    // screen's right edge (on very wide displays the centered cloud is far from it).
+    if (insetWrap.offsetWidth > 0) {   // shown on desktop; hidden on mobile
+      var cloudRight = ox + BW * s, iw2 = insetWrap.offsetWidth;
+      insetWrap.style.left = Math.max(16, Math.min(cloudRight + 10, W - iw2 - 16)) + "px";
+      insetWrap.style.right = "auto";
+    }
   }
 
   var active = -1, hoverLock = false, nextTour = 0, raf = null, mobile = false;
