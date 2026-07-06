@@ -157,7 +157,10 @@ h3 { font-size: 1.25rem; margin: 0 0 .4em; }
   .nav-links.open { display: flex; }
   .nav-links a { padding: 10px 0; width: 100%; border-bottom: 1px solid var(--faint); }
   .nav-links a:last-child { border-bottom: 0; }
-  .nav-links .nav-cta { margin-top: 10px; }
+  .nav-links .nav-cta {
+    margin-top: 14px; width: 100%; padding: 12px 16px; text-align: center;
+    border: 1px solid var(--faint); border-radius: 999px; background: #fff; font-size: .95rem;
+  }
 }
 
 /* ---------- Hero (network band) ---------- */
