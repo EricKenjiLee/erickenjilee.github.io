@@ -40,8 +40,10 @@
     var cs = getComputedStyle(document.documentElement);
     function v(n, f) { var x = cs.getPropertyValue(n).trim(); return x || f; }
     return {
-      edge: "rgba(26,40,78,0.42)",   // darker connecting lines for the data hero
-      ink:  v("--ink", "#14171c")
+      edge:  v("--hero-edge", "rgba(26,40,78,0.42)"),   // theme-aware connecting lines
+      ink:   v("--ink", "#14171c"),
+      panel: v("--paper", "#ffffff"),
+      line:  v("--wm-line", "rgba(28,28,34,.40)")
     };
   }
   var TH = theme();
@@ -130,12 +132,12 @@
     var tr = 0, j; for (j = 1; j < n; j++) if (w[j] < w[tr]) tr = j;
     var pk = tr; for (j = tr; j < n; j++) if (w[j] > w[pk]) pk = j;
     // markers
-    ictx.fillStyle = "#1c1c22";
+    ictx.fillStyle = TH.ink;
     ictx.beginPath(); ictx.arc(X(tr), Y(w[tr]), 2.4, 0, 6.2832); ictx.fill();
     ictx.beginPath(); ictx.arc(X(pk), Y(w[pk]), 2.4, 0, 6.2832); ictx.fill();
     // droplines from each marker down to a shared dimension line + bracket with end ticks
     var yL = ih - 11;
-    ictx.strokeStyle = "rgba(28,28,34,.40)"; ictx.lineWidth = 1;
+    ictx.strokeStyle = TH.line; ictx.lineWidth = 1;
     ictx.setLineDash([2, 2]);
     ictx.beginPath();
     ictx.moveTo(X(tr), Y(w[tr]) + 4); ictx.lineTo(X(tr), yL);
@@ -150,10 +152,10 @@
     var ms = (pk - tr) / FS * 1000, txt = ms.toFixed(2) + " ms";
     ictx.font = "italic 10px Georgia, serif"; ictx.textAlign = "center"; ictx.textBaseline = "alphabetic";
     var lx = (X(tr) + X(pk)) / 2, ly = yL - 5, tw = ictx.measureText(txt).width, lp = 3;
-    ictx.fillStyle = "rgba(255,255,255,.92)";
+    ictx.fillStyle = TH.panel;
     if (ictx.roundRect) { ictx.beginPath(); ictx.roundRect(lx - tw / 2 - lp, ly - 9, tw + 2 * lp, 12, 3); ictx.fill(); }
     else { ictx.fillRect(lx - tw / 2 - lp, ly - 9, tw + 2 * lp, 12); }
-    ictx.fillStyle = "#33312e"; ictx.fillText(txt, lx, ly);
+    ictx.fillStyle = TH.ink; ictx.fillText(txt, lx, ly);
     // caption — descriptor is the cluster's fixed character (stable per cluster),
     // shown next to this neuron's own measured trough-to-peak above.
     labelEl.innerHTML = "<b>Cluster " + (p.c + 1) + "</b> · " + (clusterKind[p.c] || "intermediate");

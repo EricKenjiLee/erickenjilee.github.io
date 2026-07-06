@@ -38,6 +38,8 @@
   --hero-edge-intra:  rgba(37,99,235,0.05);
   --hero-edge-inter:  rgba(37,99,235,0.10);
   --hero-fiber-rgb:   147,197,253;
+  --hero-edge:        rgba(26,40,78,0.42);   /* WaveMAP graph edges (read by hero JS) */
+  --wm-line:          rgba(28,28,34,.40);    /* waveform-inset annotation lines */
   --hero-glow:        0;
   --hero-nodes:       #60a5fa,#93c5fd,#bfdbfe,#7dd3fc,#3b82f6,#38bdf8,#93c5fd,#bae6fd;
 
@@ -55,6 +57,53 @@
 
   --shadow: 0 1px 2px rgba(31,29,27,.04), 0 8px 24px rgba(31,29,27,.06);
 }
+
+/* ---- Dark theme: override the tokens in one block (set via data-theme on <html>) ---- */
+html[data-theme="dark"] {
+  --paper:      #0f1216;
+  --paper-2:    #171b22;
+  --ink:        #e8eaef;
+  --muted:      #9aa3b1;
+  --faint:      #272d37;
+  --accent:     #6ea0ff;
+  --accent-deep:#9dbcff;
+  --hero-bg:    #0b0e12;
+  --link:       #9dbcff;
+
+  --nav-bg:     rgba(15,18,23,.82);
+  --footer-bg:  #080b10;
+
+  --hero-ink:         #e8eaef;
+  --hero-sub:         #b7bfcc;
+  --hero-eyebrow:     #9dbcff;
+  --hero-name-accent: #6ea0ff;
+  --hero-ghost-rgb:   232,234,239;
+  --hero-scrim-rgb:   11,14,18;
+  --hero-edge-intra:  rgba(110,160,255,0.06);
+  --hero-edge-inter:  rgba(110,160,255,0.12);
+  --hero-fiber-rgb:   110,160,255;
+  --hero-edge:        rgba(150,180,235,0.34);
+  --wm-line:          rgba(198,206,220,.42);
+
+  --badge-bg:         #17233d;
+  --card-hover-bd:    #33456a;
+  --social-hover-rgb: 110,160,255;
+
+  --shadow: 0 1px 2px rgba(0,0,0,.5), 0 10px 30px rgba(0,0,0,.45);
+}
+/* hardcoded (non-token) colors that need a dark counterpart */
+html[data-theme="dark"] .lead { color: #c8cdd7; }
+html[data-theme="dark"] .pub-authors { color: #aab1bd; }
+html[data-theme="dark"] .article { color: #c8cdd7; }
+html[data-theme="dark"] .nav-links a { color: #aab2bf; }
+html[data-theme="dark"] .article blockquote { color: #c2c8d2; }
+html[data-theme="dark"] .nav-cta,
+html[data-theme="dark"] .nav-links .nav-cta,
+html[data-theme="dark"] .btn-outline { background: var(--paper-2); }
+html[data-theme="dark"] .card { background: rgba(255,255,255,.04); }
+html[data-theme="dark"] .wm-inset { background: rgba(23,27,34,.92); }
+/* pencil-sketch watermarks are dark ink → invert so they read on a dark page */
+html[data-theme="dark"] .sketch-bg { filter: invert(1) hue-rotate(180deg) brightness(1.15); }
 
 * { box-sizing: border-box; }
 
@@ -118,11 +167,11 @@ h3 { font-size: 1.25rem; margin: 0 0 .4em; }
 }
 .nav-inner {
   max-width: var(--max); margin: 0 auto; padding: 12px 24px;
-  display: flex; align-items: center; justify-content: space-between; gap: 16px;
+  display: flex; align-items: center; gap: 16px;
 }
 .brand {
   font-family: var(--name); font-weight: 600; font-size: 1.12rem; color: var(--ink);
-  letter-spacing: .01em; white-space: nowrap;
+  letter-spacing: .01em; white-space: nowrap; margin-right: auto;
 }
 .brand:hover { text-decoration: none; color: var(--accent-deep); }
 .brand .brand-mark { color: var(--accent); }
@@ -145,6 +194,16 @@ h3 { font-size: 1.25rem; margin: 0 0 .4em; }
 .nav-cta:hover { border-color: var(--accent); color: var(--accent-deep); text-decoration: none; }
 .nav-toggle { display: none; background: none; border: 0; cursor: pointer; padding: 6px; }
 .nav-toggle svg { width: 26px; height: 26px; stroke: var(--ink); }
+.theme-toggle {
+  display: inline-flex; align-items: center; justify-content: center;
+  background: none; border: 0; cursor: pointer; padding: 6px; color: var(--ink);
+  border-radius: 8px; line-height: 0; transition: color .15s ease;
+}
+.theme-toggle:hover { color: var(--accent-deep); }
+.theme-toggle svg { width: 21px; height: 21px; display: block; }
+.theme-toggle .icon-sun { display: none; }
+html[data-theme="dark"] .theme-toggle .icon-moon { display: none; }
+html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
 
 @media (max-width: 720px) {
   .nav-toggle { display: inline-flex; }

@@ -46,7 +46,23 @@
     .traj .stat.sPub{background:#e1f5ee;color:#0F6E56} .traj .stat.sPre{background:#faeeda;color:#854F0B} .traj .stat.sPrep{background:#eeedfe;color:#3C3489}
     .traj .stat.tInv{background:#faeeda;color:#854F0B} .traj .stat.tCon{background:#f1efe8;color:#5F5E5A} .traj .stat.tUp{background:#eeedfe;color:#3C3489}
     @media (max-width:600px){ .traj th:nth-child(5),.traj td:nth-child(5){display:none} .traj th,.traj td{padding:8px 7px} .traj .tbl-wrap table{min-width:470px} }
+    html[data-theme="dark"] .traj-fig, html[data-theme="dark"] .traj-detail, html[data-theme="dark"] .traj-card{background:var(--paper-2)}
+    html[data-theme="dark"] .traj-fig .lm{fill:#9aa3b1}
+    html[data-theme="dark"] .traj-detail .links a{background:transparent}
+    html[data-theme="dark"] .traj-badge.b-prep,html[data-theme="dark"] .traj-badge.b-up{background:#26215C;color:#CECBF6}
+    html[data-theme="dark"] .traj-badge.b-pre,html[data-theme="dark"] .traj-badge.b-inv{background:#412402;color:#EF9F27}
+    html[data-theme="dark"] .traj-badge.b-con{background:#2C2C2A;color:#D3D1C7}
+    html[data-theme="dark"] .traj-badge.b-pub{background:#04342C;color:#5DCAA5}
+    html[data-theme="dark"] .traj .role.r1{background:#26215C;color:#CECBF6}
+    html[data-theme="dark"] .traj .role.r2,html[data-theme="dark"] .traj .role.r3{background:#2C2C2A;color:#D3D1C7}
+    html[data-theme="dark"] .traj .stat.sPub{background:#04342C;color:#5DCAA5}
+    html[data-theme="dark"] .traj .stat.sPre{background:#412402;color:#EF9F27}
+    html[data-theme="dark"] .traj .stat.sPrep{background:#26215C;color:#CECBF6}
+    html[data-theme="dark"] .traj .stat.tInv{background:#412402;color:#EF9F27}
+    html[data-theme="dark"] .traj .stat.tCon{background:#2C2C2A;color:#B4B2A9}
+    html[data-theme="dark"] .traj .stat.tUp{background:#26215C;color:#CECBF6}
   </style>
+  <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
 <body>
 
@@ -64,6 +80,10 @@
         <a href="outreach.html">Outreach</a>
         <a class="nav-cta" href="assets/docs/Eric_Kenji_Lee_CV.pdf">CV ↓</a>
       </nav>
+        <button class="theme-toggle" type="button" aria-label="Toggle dark mode" title="Toggle dark mode" aria-pressed="false">
+          <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+          <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></svg>
+        </button>
     </div>
   </header>
 

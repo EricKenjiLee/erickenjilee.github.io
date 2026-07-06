@@ -22,6 +22,20 @@
     });
   }
 
+  /* ---------- Dark-mode toggle (initial theme set by the inline <head> script) ---------- */
+  var themeBtn = document.querySelector(".theme-toggle");
+  if (themeBtn) {
+    themeBtn.addEventListener("click", function () {
+      var dark = document.documentElement.getAttribute("data-theme") === "dark";
+      var next = dark ? "light" : "dark";
+      document.documentElement.setAttribute("data-theme", next);
+      try { localStorage.setItem("theme", next); } catch (e) {}
+      themeBtn.setAttribute("aria-pressed", next === "dark" ? "true" : "false");
+      /* nudge the canvas heroes to re-read their theme colors */
+      window.dispatchEvent(new Event("resize"));
+    });
+  }
+
   /* ---------- Scroll reveal ---------- */
   if ("IntersectionObserver" in window) {
     var io = new IntersectionObserver(function (entries) {
