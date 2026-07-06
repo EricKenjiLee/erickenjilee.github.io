@@ -32,6 +32,8 @@
     .traj-detail .links a:hover{border-color:var(--accent);text-decoration:none}
     .traj-card{background:#fff;border:1px solid var(--faint);border-radius:16px;padding:18px 20px 8px;box-shadow:var(--shadow);margin-top:22px}
     .traj-card h2{font-family:var(--sans);font-size:.95rem;font-weight:700;margin:0 0 10px;color:var(--ink)}
+    .traj .tbl-wrap{overflow-x:auto;-webkit-overflow-scrolling:touch}
+    .pub-head{padding-bottom:14px}
     .traj table{width:100%;border-collapse:collapse;font-size:.85rem}
     .traj th,.traj td{text-align:left;padding:9px 10px;border-bottom:1px solid var(--faint);vertical-align:top}
     .traj tbody tr:last-child td{border-bottom:0}
@@ -43,7 +45,7 @@
     .traj .stat{display:inline-block;font-size:.68rem;padding:2px 8px;border-radius:6px;white-space:nowrap;font-weight:600}
     .traj .stat.sPub{background:#e1f5ee;color:#0F6E56} .traj .stat.sPre{background:#faeeda;color:#854F0B} .traj .stat.sPrep{background:#eeedfe;color:#3C3489}
     .traj .stat.tInv{background:#faeeda;color:#854F0B} .traj .stat.tCon{background:#f1efe8;color:#5F5E5A} .traj .stat.tUp{background:#eeedfe;color:#3C3489}
-    @media (max-width:600px){ .traj th:nth-child(5),.traj td:nth-child(5){display:none} .traj th,.traj td{padding:8px 7px} }
+    @media (max-width:600px){ .traj th:nth-child(5),.traj td:nth-child(5){display:none} .traj th,.traj td{padding:8px 7px} .traj .tbl-wrap table{min-width:470px} }
   </style>
 </head>
 <body>
@@ -66,7 +68,7 @@
   </header>
 
   <main>
-    <section class="section">
+    <section class="section pub-head">
       <div class="container">
         <p class="section-label">Publications</p>
         <h1>Papers, talks &amp; trajectory</h1>
@@ -237,7 +239,7 @@
 
           <div class="traj-card">
             <h2>Conference talks &amp; panels</h2>
-    <table>
+    <div class="tbl-wrap"><table>
       <thead><tr><th>Year</th><th>Title</th><th>Venue</th><th>Type</th><th>Stream</th></tr></thead>
       <tbody>
         <tr><td class="yr"><span class="stat tUp">upcoming</span></td><td>Cell type-informed dynamical systems uncover mechanisms of cortical computation</td><td>Gordon Research Seminar: Neurobiology of Cognition</td><td><span class="stat tUp">In prep</span></td><td><span class="stream" style="background:#1D9E75"></span>Cell-type &times; Primate</td></tr>
@@ -247,11 +249,11 @@
         <tr><td class="yr">2023</td><td>Multi-modal composition of physiological signals to delineate neuronal cell types</td><td>CCN Jr. Theo. Neuro Workshop, Flatiron, NYC</td><td><span class="stat tCon">Contrib</span></td><td><span class="stream" style="background:#7F77DD"></span>Cell-type</td></tr>
         <tr><td class="yr">2023</td><td>Multi-modal composition of physiological signals to delineate neuronal cell types</td><td>NSF AI Planning Institute, CMU, Pittsburgh</td><td><span class="stat tCon">Contrib</span></td><td><span class="stream" style="background:#7F77DD"></span>Cell-type</td></tr>
       </tbody>
-    </table>
+    </table></div>
           </div>
           <div class="traj-card">
             <h2>Publications</h2>
-    <table>
+    <div class="tbl-wrap"><table>
       <thead><tr><th>Year / status</th><th>Paper</th><th>Venue</th><th>Role</th><th>Stream</th></tr></thead>
       <tbody>
         <tr><td class="yr"><span class="stat sPrep">in prep</span></td><td>Population dynamics during mnemonic working memory are structured by a single inhibitory cell type</td><td>&mdash;</td><td><span class="role r1">First</span></td><td><span class="stream" style="background:#1D9E75"></span>Primate</td></tr>
@@ -277,7 +279,7 @@
         <tr><td class="yr"><span class="stat sPub">2017</span></td><td>Neuropathological / transcriptomic characteristics of aged brain</td><td>eLife</td><td><span class="role r3">Co-author</span></td><td><span class="stream" style="background:#888780"></span>Other</td></tr>
         <tr><td class="yr"><span class="stat sPub">2016</span></td><td>Bisphenol A alters GnRH3 neuron development in medaka</td><td>NeuroToxicology</td><td><span class="role r3">Co-author</span></td><td><span class="stream" style="background:#888780"></span>Other</td></tr>
       </tbody>
-    </table>
+    </table></div>
           </div>
         </div>
       </div>
