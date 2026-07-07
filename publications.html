@@ -429,7 +429,18 @@
       var show=function(e){ if(e){e.preventDefault();} render(blurb); };
       el.addEventListener('mouseenter', show);
       el.addEventListener('focus', show);
-      el.addEventListener('click', show);
+    });
+    // generous tap target: a click/tap anywhere in a plot selects the nearest marker
+    [].forEach.call(document.querySelectorAll('.traj-fig svg'), function(svg){
+      svg.addEventListener('click', function(e){
+        var best=null, bd=28*28;
+        [].forEach.call(svg.querySelectorAll('.mk'), function(el){
+          var r=el.getBoundingClientRect(); if(!r.width) return;
+          var dx=e.clientX-(r.left+r.width/2), dy=e.clientY-(r.top+r.height/2), d=dx*dx+dy*dy;
+          if(d<bd){ bd=d; best=el; }
+        });
+        if(best) render(best.getAttribute('aria-label'));
+      });
     });
   })();
 
