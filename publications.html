@@ -80,6 +80,15 @@
     .traj .stat.yr2024{background:#F9E7E6;color:#D3564D} html[data-theme="dark"] .traj .stat.yr2024{background:#362021;color:#E49691}
     .traj .stat.yr2025{background:#F7E9E2;color:#C96032} html[data-theme="dark"] .traj .stat.yr2025{background:#34221C;color:#DE9C80}
     .traj .stat.yr2026{background:#F4EBE1;color:#AE712B} html[data-theme="dark"] .traj .stat.yr2026{background:#2F251A;color:#CDA77C}
+    .traj .host-sub{color:var(--muted);font-size:.78rem;margin-top:2px}
+    .traj .fmt{display:inline-block;font-size:.68rem;padding:2px 8px;border-radius:6px;white-space:nowrap;font-weight:600}
+    .traj .fmt-person{background:#eef1f4;color:#48515e}
+    .traj .fmt-virtual{background:#e7f0fb;color:#1d4ed8}
+    .traj .fmt-soon{background:#eeedfe;color:#3C3489}
+    html[data-theme="dark"] .traj .fmt-person{background:#2a2f37;color:#c2ccd8}
+    html[data-theme="dark"] .traj .fmt-virtual{background:#12294d;color:#9dbcff}
+    html[data-theme="dark"] .traj .fmt-soon{background:#26215C;color:#CECBF6}
+
   </style>
   <script>(function(){try{var t=localStorage.getItem('theme')||(matchMedia('(prefers-color-scheme:dark)').matches?'dark':'light');document.documentElement.setAttribute('data-theme',t);}catch(e){}})();</script>
 </head>
@@ -290,14 +299,19 @@
       </table></div>
           </div>
           <div class="traj-card">
-            <h2>Conference talks &amp; panels</h2>
+            <h2>Invited talks &amp; seminars</h2>
+      <div class="tbl-wrap"><table>
+        <thead><tr><th>Year</th><th>Host</th><th>Format</th></tr></thead>
+        <tbody><tr><td class="yr"><span class="stat yr2026">2026</span></td><td><strong>Gordon Research Seminar</strong><div class="host-sub">Neurobiology of Cognition</div></td><td><span class="fmt fmt-soon">Upcoming</span></td></tr><tr><td class="yr"><span class="stat yr2026">2026</span></td><td><strong>Steinmetz Lab</strong><div class="host-sub">University of Washington</div></td><td><span class="fmt fmt-person">In person</span></td></tr><tr><td class="yr"><span class="stat yr2026">2026</span></td><td><strong>Sainsbury Wellcome Centre</strong><div class="host-sub">University College London</div></td><td><span class="fmt fmt-person">In person</span></td></tr><tr><td class="yr"><span class="stat yr2026">2026</span></td><td><strong>Rutishauser Lab</strong><div class="host-sub">Caltech &amp; Cedars-Sinai</div></td><td><span class="fmt fmt-virtual">Virtual</span></td></tr><tr><td class="yr"><span class="stat yr2024">2024</span></td><td><strong>Center for Molecular &amp; Behavioral Neuroscience</strong><div class="host-sub">Rutgers University</div></td><td><span class="fmt fmt-person">In person</span></td></tr><tr><td class="yr"><span class="stat yr2024">2024</span></td><td><strong>Varol Lab</strong><div class="host-sub">New York University</div></td><td><span class="fmt fmt-virtual">Virtual</span></td></tr><tr><td class="yr"><span class="stat yr2021">2021</span></td><td><strong>Svoboda Lab</strong><div class="host-sub">Janelia Research Campus</div></td><td><span class="fmt fmt-virtual">Virtual</span></td></tr><tr><td class="yr"><span class="stat yr2021">2021</span></td><td><strong>Valiante Lab</strong><div class="host-sub">University of Toronto</div></td><td><span class="fmt fmt-virtual">Virtual</span></td></tr><tr><td class="yr"><span class="stat yr2021">2021</span></td><td><strong>Brain Observatory Group</strong><div class="host-sub">Allen Institute for Brain Science</div></td><td><span class="fmt fmt-virtual">Virtual</span></td></tr></tbody>
+      </table></div>
+          <h2>Conference talks &amp; panels</h2>
     <div class="tbl-wrap"><table>
       <thead><tr><th>Year</th><th>Title</th><th>Venue</th><th>Type</th><th>Stream</th></tr></thead>
       <tbody>
-        <tr><td class="yr"><span class="stat tUp">upcoming</span></td><td>Cell type-informed dynamical systems uncover mechanisms of cortical computation</td><td>Gordon Research Seminar: Neurobiology of Cognition</td><td><span class="stat tUp">In prep</span></td><td><span class="stream" style="background:#1D9E75"></span>Primate</td></tr>
+        
         <tr><td class="yr"><span class="stat yr2026">2026</span></td><td>Impacting our communities at every training stage (panelist)</td><td>COSYNE Mentorship Panel, Lisbon</td><td><span class="stat tInv">Invited</span></td><td><span class="stream" style="background:#888780"></span>Service</td></tr>
         <tr><td class="yr"><span class="stat yr2026">2026</span></td><td>"Bridging cell types and spike trains" &mdash; workshop co-organizer (w/ J. Siegle)</td><td>COSYNE Workshop, Lisbon</td><td><span class="stat tCon">Contrib</span></td><td><span class="stream" style="background:#7F77DD"></span>Cell types</td></tr>
-        <tr><td class="yr"><span class="stat yr2024">2024</span></td><td>Manifolds for identification of cell types and neural computation geometry</td><td>Rutgers CMBN, Newark</td><td><span class="stat tInv">Invited</span></td><td><span class="stream" style="background:#7F77DD"></span>Cell types</td></tr>
+        
         <tr><td class="yr"><span class="stat yr2023">2023</span></td><td>Multi-modal composition of physiological signals to delineate neuronal cell types</td><td>CCN Jr. Theo. Neuro Workshop, Flatiron, NYC</td><td><span class="stat tCon">Contrib</span></td><td><span class="stream" style="background:#7F77DD"></span>Cell types</td></tr>
         <tr><td class="yr"><span class="stat yr2023">2023</span></td><td>Multi-modal composition of physiological signals to delineate neuronal cell types</td><td>NSF AI Planning Institute, CMU, Pittsburgh</td><td><span class="stat tCon">Contrib</span></td><td><span class="stream" style="background:#7F77DD"></span>Cell types</td></tr>
       </tbody>
