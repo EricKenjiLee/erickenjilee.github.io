@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Eric Kenji Lee — Trajectory</title>
+<style>
+  :root{
+    --ink:#1f1e1c; --ink2:#55534e; --ink3:#8a887f; --line:#e5e3db;
+    --bg:#fbfaf7; --card:#ffffff;
+  }
+  *{box-sizing:border-box}
+  body{margin:0;background:var(--bg);color:var(--ink);
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    line-height:1.55;padding:32px 20px;}
+  .wrap{max-width:940px;margin:0 auto;}
+  h1{font-size:22px;font-weight:600;margin:0 0 2px;}
+  .sub{color:var(--ink2);font-size:14px;margin:0 0 22px;}
+  .card{background:var(--card);border:1px solid var(--line);border-radius:14px;padding:20px;margin-bottom:22px;}
+  h2{font-size:15px;font-weight:600;margin:0 0 12px;}
+  .kpis{display:grid;grid-template-columns:repeat(auto-fit,minmax(135px,1fr));gap:12px;margin-bottom:22px;}
+  .kpi{background:var(--card);border:1px solid var(--line);border-radius:12px;padding:14px 16px;}
+  .kpi .n{font-size:24px;font-weight:600;letter-spacing:-0.5px;}
+  .kpi .l{font-size:11.5px;color:var(--ink2);margin-top:2px;line-height:1.35;}
+  svg{width:100%;height:auto;display:block;}
+  .lt{fill:#3f3e3b} .lm{fill:#8a887f}
+  table{width:100%;border-collapse:collapse;font-size:13px;}
+  th,td{text-align:left;padding:8px 10px;border-bottom:1px solid var(--line);vertical-align:top;}
+  td.yr{color:var(--ink3);white-space:nowrap;font-variant-numeric:tabular-nums;}
+  th{color:var(--ink2);font-weight:600;font-size:11.5px;text-transform:uppercase;letter-spacing:.4px;}
+  .role{display:inline-block;font-size:11px;padding:2px 8px;border-radius:20px;white-space:nowrap;}
+  .r1{background:#efedfe;color:#3C3489;} .r2{background:#f1efe8;color:#444441;} .r3{background:#f1efe8;color:#444441;}
+  .stream{display:inline-block;width:9px;height:9px;border-radius:2px;margin-right:7px;vertical-align:-1px;}
+  .stat{font-size:11px;padding:2px 8px;border-radius:6px;white-space:nowrap;font-weight:500;}
+  .sPub{background:#e1f5ee;color:#0F6E56;} .sPre{background:#faeeda;color:#854F0B;} .sPrep{background:#eeedfe;color:#3C3489;}
+  .tInv{background:#faeeda;color:#854F0B;} .tCon{background:#f1efe8;color:#5F5E5A;} .tUp{background:#eeedfe;color:#3C3489;}
+  .caption{color:var(--ink3);font-size:12.5px;margin-top:12px;}
+  .note{background:#e1f5ee;border:1px solid #a9dcc9;border-radius:10px;padding:12px 14px;font-size:13px;color:#0b4535;margin-bottom:22px;}
+  @media (prefers-color-scheme: dark){
+    :root{--ink:#f2f1ea;--ink2:#c3c2b7;--ink3:#8a887f;--line:#33322e;--bg:#161513;--card:#1e1d1a;}
+    .lt{fill:#e4e2d9} .lm{fill:#9a988e}
+    .r1{background:#26215C;color:#CECBF6;} .r2{background:#2C2C2A;color:#D3D1C7;} .r3{background:#2C2C2A;color:#D3D1C7;}
+    .sPub{background:#04342C;color:#5DCAA5;} .sPre{background:#412402;color:#EF9F27;} .sPrep{background:#26215C;color:#CECBF6;}
+    .tInv{background:#412402;color:#EF9F27;} .tCon{background:#2C2C2A;color:#B4B2A9;} .tUp{background:#26215C;color:#CECBF6;}
+    .note{background:#04342C;border-color:#0F6E56;color:#9FE1CB;}
+  }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Eric Kenji Lee — trajectory: papers, pipeline &amp; talks</h1>
+  <div class="card">
+    <svg viewBox="0 0 705 456" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Timeline 2016 to 2026: first-author papers as stars, co-author papers and talks as dots, across four research streams plus a talks lane. Ghosted markers are in prep or upcoming.">
+
+      <rect x="574" y="102" width="122" height="100" rx="8" fill="#888780" fill-opacity="0.06"/>
+      <line x1="574" y1="102" x2="574" y2="202" stroke="#888780" stroke-opacity="0.32" stroke-width="1"/>
+
+      <line x1="155" y1="118" x2="690" y2="118" stroke="#888780" stroke-opacity="0.16" stroke-width="1"/>
+      <line x1="155" y1="190" x2="690" y2="190" stroke="#888780" stroke-opacity="0.16" stroke-width="1"/>
+      <line x1="155" y1="262" x2="560" y2="262" stroke="#888780" stroke-opacity="0.16" stroke-width="1"/>
+      <line x1="155" y1="332" x2="560" y2="332" stroke="#888780" stroke-opacity="0.16" stroke-width="1"/>
+      <line x1="155" y1="392" x2="690" y2="392" stroke="#888780" stroke-opacity="0.16" stroke-width="1"/>
+
+      <polygon points="167,22 168.9,27.4 174.6,27.5 170,31 171.7,36.5 167,33.2 162.3,36.5 164,31 159.4,27.5 165.1,27.4" fill="#888780" stroke="#5F5E5A" stroke-width="1"/>
+      <text class="lm" x="181" y="34" font-size="11.5">First author</text>
+      <circle cx="300" cy="30" r="5" fill="#888780" fill-opacity="0.22" stroke="#5F5E5A" stroke-width="1.5"/>
+      <text class="lm" x="312" y="34" font-size="11.5">Co-author</text>
+      <polygon points="415,22 416.9,27.4 422.6,27.5 418,31 419.7,36.5 415,33.2 410.3,36.5 412,31 407.4,27.5 413.1,27.4" fill="#888780" fill-opacity="0.18" stroke="#5F5E5A" stroke-width="1.5"/>
+      <text class="lm" x="429" y="34" font-size="11.5">In prep / upcoming</text>
+      <text class="lm" x="700" y="34" font-size="11" text-anchor="end">hover a point for details</text>
+
+      <circle cx="167" cy="52" r="5" fill="#888780" stroke="#5F5E5A" stroke-width="1"/>
+      <text class="lm" x="181" y="56" font-size="11.5">Invited talk</text>
+      <circle cx="300" cy="52" r="5" fill="none" stroke="#5F5E5A" stroke-width="1.8"/>
+      <text class="lm" x="312" y="56" font-size="11.5">Contributed talk</text>
+
+      <rect x="8" y="113" width="10" height="10" rx="2" fill="#7F77DD"/>
+      <text class="lt" x="24" y="122" font-size="12.5" font-weight="600">Cell-type methods</text>
+      <rect x="8" y="181" width="10" height="10" rx="2" fill="#1D9E75"/>
+      <text class="lt" x="24" y="188" font-size="12.5" font-weight="600">Primate cortex</text>
+      <text class="lm" x="24" y="202" font-size="11">&amp; decisions</text>
+      <rect x="8" y="250" width="10" height="10" rx="2" fill="#378ADD"/>
+      <text class="lt" x="24" y="257" font-size="12.5" font-weight="600">Mouse visual</text>
+      <text class="lm" x="24" y="271" font-size="11">cortex &middot; Allen</text>
+      <rect x="8" y="327" width="10" height="10" rx="2" fill="#888780"/>
+      <text class="lt" x="24" y="336" font-size="12.5" font-weight="600">Early / other</text>
+      <circle cx="13" cy="392" r="3.2" fill="#888780" stroke="#5F5E5A" stroke-width="0.8"/>
+      <text class="lt" x="24" y="396" font-size="12.5" font-weight="600">Conference talks</text>
+
+      <polygon points="357.5,110 359.4,115.4 365.1,115.5 360.5,119 362.2,124.5 357.5,121.2 352.8,124.5 354.5,119 349.9,115.5 355.6,115.4" fill="#7F77DD" stroke="#534AB7" stroke-width="1.2"><title>WaveMAP &mdash; cell type diversity via nonlinear dimensionality reduction of waveforms. eLife, 2021. First author. Published.</title></polygon>
+      <polygon points="438.5,110 440.4,115.4 446.1,115.5 441.5,119 443.2,124.5 438.5,121.2 433.8,124.5 435.5,119 430.9,115.5 436.6,115.4" fill="#7F77DD" stroke="#534AB7" stroke-width="1.2"><title>WaveMAP for identifying putative cell types from extracellular electrophysiology. STAR Protocols, 2023. First author. Published.</title></polygon>
+      <circle cx="519.5" cy="118" r="5" fill="#7F77DD" fill-opacity="0.22" stroke="#534AB7" stroke-width="1.5"><title>In vivo cell-type and brain region classification via multimodal contrastive learning. ICLR Spotlight, 2025. Co-author. Published.</title></circle>
+      <polygon points="560,110 561.9,115.4 567.6,115.5 563,119 564.7,124.5 560,121.2 555.3,124.5 557,119 552.4,115.5 558.1,115.4" fill="#7F77DD" stroke="#534AB7" stroke-width="1.2"><title>PhysMAP &mdash; multi-modal visualization &amp; identification of electrophysiological cell types. Nature Communications, 2026. First author. Published.</title></polygon>
+      <text class="lt" x="357.5" y="101" font-size="12" font-weight="600" text-anchor="middle">WaveMAP</text>
+      <text class="lm" x="438.5" y="101" font-size="11" text-anchor="middle">Protocol</text>
+      <text class="lt" x="556" y="101" font-size="12" font-weight="600" text-anchor="end">PhysMAP</text>
+
+      <circle cx="438.5" cy="190" r="5" fill="#1D9E75" fill-opacity="0.22" stroke="#0F6E56" stroke-width="1.5"><title>A cortical information bottleneck during decision-making. eLife, 2023. Co-author. Published.</title></circle>
+      <circle cx="560" cy="190" r="5" fill="#1D9E75" fill-opacity="0.22" stroke="#0F6E56" stroke-width="1.5"><title>Neuropixels reveal laminar microcircuit organization in monkey V1 in vivo (Carr et al.). PNAS, 2026. Co-author. Published.</title></circle>
+
+      <circle cx="195.5" cy="262" r="5" fill="#378ADD" fill-opacity="0.22" stroke="#185FA5" stroke-width="1.5"><title>Aberrant cortical activity in GCaMP6 transgenic lines. eNeuro, 2017. Co-author. Published.</title></circle>
+      <circle cx="276.5" cy="262" r="5" fill="#378ADD" fill-opacity="0.22" stroke="#185FA5" stroke-width="1.5"><title>Biological variation in the sizes, shapes and locations of visual cortical areas in the mouse. PLOS ONE, 2019. Second author. Published.</title></circle>
+      <circle cx="317" cy="249" r="5" fill="#378ADD" fill-opacity="0.22" stroke="#185FA5" stroke-width="1.5"><title>Allen Brain Observatory &mdash; large-scale physiological survey of mouse visual cortex. Nature Neuroscience, 2020. Co-author &mdash; 44th of 72, alphabetical. Citation heavyweight. Published.</title></circle>
+      <circle cx="317" cy="275" r="5" fill="#378ADD" fill-opacity="0.22" stroke="#185FA5" stroke-width="1.5"><title>VIP interneurons enhance responses to weak stimuli in mouse V1. eLife, 2020. Co-author. Published.</title></circle>
+      <circle cx="398" cy="249" r="5" fill="#378ADD" fill-opacity="0.22" stroke="#185FA5" stroke-width="1.5"><title>A standardized behavioral event equally impacts cortical visual areas and layers (Ramadan et al.). eNeuro, 2022. Second author. Published.</title></circle>
+      <circle cx="398" cy="275" r="5" fill="#378ADD" fill-opacity="0.22" stroke="#185FA5" stroke-width="1.5"><title>Measuring stimulus-evoked neurophysiological differentiation in mouse V1. eNeuro, 2022. Co-author. Published.</title></circle>
+      <circle cx="438.5" cy="249" r="5" fill="#378ADD" fill-opacity="0.22" stroke="#185FA5" stroke-width="1.5"><title>Whole-brain monosynaptic input connectome to neuron classes in mouse V1. Nature Neuroscience, 2023. Co-author. Published.</title></circle>
+      <circle cx="438.5" cy="275" r="5" fill="#378ADD" fill-opacity="0.22" stroke="#185FA5" stroke-width="1.5"><title>Somata / apical dendrite responses in mouse V1 over days (dataset). Scientific Data, 2023. Co-author. Published.</title></circle>
+      <circle cx="479" cy="262" r="5" fill="#378ADD" fill-opacity="0.22" stroke="#185FA5" stroke-width="1.5"><title>Pattern-violating visual stimuli in somata vs distal dendrites over days. J. Neuroscience, 2024. Co-author. Published.</title></circle>
+      <text class="lm" x="317" y="237" font-size="10.5" text-anchor="middle">Brain Observatory</text>
+
+      <circle cx="155" cy="332" r="5" fill="#888780" fill-opacity="0.22" stroke="#5F5E5A" stroke-width="1.5"><title>Bisphenol A alters GnRH3 neuron development in medaka. NeuroToxicology, 2016. Co-author (undergraduate). Published.</title></circle>
+      <circle cx="195.5" cy="332" r="5" fill="#888780" fill-opacity="0.22" stroke="#5F5E5A" stroke-width="1.5"><title>Neuropathological / transcriptomic characteristics of the aged brain. eLife, 2017. Co-author. Published.</title></circle>
+
+      <circle cx="610" cy="118" r="5" fill="#7F77DD" fill-opacity="0.15" stroke="#534AB7" stroke-width="1.5"><title>IN PREP: Multimodal characterization of pan-inhibitory enhancers for assessing inhibitory neuron function in macaque monkeys (Medalla et al.). Co-author. Cell-type methods.</title></circle>
+
+      <circle cx="596" cy="190" r="5" fill="#1D9E75" fill-opacity="0.22" stroke="#0F6E56" stroke-width="1.5"><title>PREPRINT: Distinct neural dynamics in prefrontal and premotor cortex underlie flexible perceptual decisions (Wang, Lee, Carr, Chandrasekaran). bioRxiv 2026. Second author.</title></circle>
+      <polygon points="624,182 625.9,187.4 631.6,187.5 627,191 628.7,196.5 624,193.2 619.3,196.5 621,191 616.4,187.5 622.1,187.4" fill="#1D9E75" fill-opacity="0.18" stroke="#0F6E56" stroke-width="1.5"><title>IN PREP: The computational geometry of flexible decision making in prefrontal cortex. First author. (Co-first with T. Wang on earlier posters.)</title></polygon>
+      <polygon points="652,182 653.9,187.4 659.6,187.5 655,191 656.7,196.5 652,193.2 647.3,196.5 649,191 644.4,187.5 650.1,187.4" fill="#1D9E75" fill-opacity="0.18" stroke="#0F6E56" stroke-width="1.5"><title>IN PREP: Prefrontal neural dynamics underlying abstract perceptual decisions. First author.</title></polygon>
+      <polygon points="680,182 681.9,187.4 687.6,187.5 683,191 684.7,196.5 680,193.2 675.3,196.5 677,191 672.4,187.5 678.1,187.4" fill="#1D9E75" fill-opacity="0.18" stroke="#0F6E56" stroke-width="1.5"><title>IN PREP: Population dynamics during mnemonic working memory are structured by a single inhibitory cell type. First author.</title></polygon>
+
+      <circle cx="438.5" cy="383" r="5" fill="none" stroke="#534AB7" stroke-width="1.8"><title>CONTRIBUTED talk: "Multi-modal composition of physiological signals to delineate neuronal cell types." NSF AI Planning Institute, CMU, Pittsburgh. Jan 2023.</title></circle>
+      <circle cx="438.5" cy="401" r="5" fill="none" stroke="#534AB7" stroke-width="1.8"><title>CONTRIBUTED talk: "Multi-modal composition of physiological signals to delineate neuronal cell types." CCN Junior Theoretical Neuroscientist Workshop, Flatiron Institute, NYC. June 2023.</title></circle>
+      <circle cx="479" cy="392" r="5" fill="#7F77DD" stroke="#534AB7" stroke-width="1"><title>INVITED talk: "Manifolds for identification of cell types and neural computation geometry." Rutgers CMBN, Newark. May 2024.</title></circle>
+      <circle cx="560" cy="383" r="5" fill="none" stroke="#534AB7" stroke-width="1.8"><title>CONTRIBUTED: "Bridging cell types and spike trains" &mdash; workshop co-organizer (with Josh Siegle). COSYNE, Lisbon. March 2026.</title></circle>
+      <circle cx="560" cy="401" r="5" fill="#888780" stroke="#5F5E5A" stroke-width="1"><title>INVITED panel: "Impacting our communities at every training stage" (panelist). COSYNE Mentorship Panel, Lisbon. March 2026. Service / outreach.</title></circle>
+      <circle cx="634" cy="392" r="5.5" fill="#1D9E75" fill-opacity="0.18" stroke="#0F6E56" stroke-width="1.5"><title>UPCOMING (in prep): "Cell type-informed dynamical systems uncover mechanisms of cortical computation." Gordon Research Seminar: Neurobiology of Cognition. Bridges cell-type methods + primate decisions &mdash; first talk to unite both.</title></circle>
+
+      <line x1="155" y1="422" x2="560" y2="422" stroke="#888780" stroke-opacity="0.3" stroke-width="1"/>
+      <text class="lm" x="155" y="437" font-size="11" text-anchor="middle">2016</text>
+      <text class="lm" x="195.5" y="437" font-size="11" text-anchor="middle">2017</text>
+      <text class="lm" x="236" y="437" font-size="11" text-anchor="middle">2018</text>
+      <text class="lm" x="276.5" y="437" font-size="11" text-anchor="middle">2019</text>
+      <text class="lm" x="317" y="437" font-size="11" text-anchor="middle">2020</text>
+      <text class="lm" x="357.5" y="437" font-size="11" text-anchor="middle">2021</text>
+      <text class="lm" x="398" y="437" font-size="11" text-anchor="middle">2022</text>
+      <text class="lm" x="438.5" y="437" font-size="11" text-anchor="middle">2023</text>
+      <text class="lm" x="479" y="437" font-size="11" text-anchor="middle">2024</text>
+      <text class="lm" x="519.5" y="437" font-size="11" text-anchor="middle">2025</text>
+      <text class="lm" x="560" y="437" font-size="11" text-anchor="middle">2026</text>
+      <text class="lm" x="634" y="437" font-size="10.5" text-anchor="middle" font-style="italic">in pipeline</text>
+    </svg>
+    <p class="caption">Stars = your first-author papers (solid = published; ghosted = the three in-prep primate-decision manuscripts). Dots = co-authored papers (faint) and talks (bottom lane): filled = invited, open = contributed, ghosted teal = the upcoming Gordon seminar talk that unites both streams. Citation magnitude is not encoded.</p>
+  </div>
+
+  <div class="card">
+    <h2>Conference talks &amp; panels</h2>
+    <table>
+      <thead><tr><th>Year</th><th>Title</th><th>Venue</th><th>Type</th><th>Stream</th></tr></thead>
+      <tbody>
+        <tr><td class="yr"><span class="stat tUp">upcoming</span></td><td>Cell type-informed dynamical systems uncover mechanisms of cortical computation</td><td>Gordon Research Seminar: Neurobiology of Cognition</td><td><span class="stat tUp">In prep</span></td><td><span class="stream" style="background:#1D9E75"></span>Cell-type &times; Primate</td></tr>
+        <tr><td class="yr">2026</td><td>Impacting our communities at every training stage (panelist)</td><td>COSYNE Mentorship Panel, Lisbon</td><td><span class="stat tInv">Invited</span></td><td><span class="stream" style="background:#888780"></span>Service</td></tr>
+        <tr><td class="yr">2026</td><td>"Bridging cell types and spike trains" &mdash; workshop co-organizer (w/ J. Siegle)</td><td>COSYNE Workshop, Lisbon</td><td><span class="stat tCon">Contrib</span></td><td><span class="stream" style="background:#7F77DD"></span>Cell-type</td></tr>
+        <tr><td class="yr">2024</td><td>Manifolds for identification of cell types and neural computation geometry</td><td>Rutgers CMBN, Newark</td><td><span class="stat tInv">Invited</span></td><td><span class="stream" style="background:#7F77DD"></span>Cell-type</td></tr>
+        <tr><td class="yr">2023</td><td>Multi-modal composition of physiological signals to delineate neuronal cell types</td><td>CCN Jr. Theo. Neuro Workshop, Flatiron, NYC</td><td><span class="stat tCon">Contrib</span></td><td><span class="stream" style="background:#7F77DD"></span>Cell-type</td></tr>
+        <tr><td class="yr">2023</td><td>Multi-modal composition of physiological signals to delineate neuronal cell types</td><td>NSF AI Planning Institute, CMU, Pittsburgh</td><td><span class="stat tCon">Contrib</span></td><td><span class="stream" style="background:#7F77DD"></span>Cell-type</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <div class="card">
+    <h2>Publications</h2>
+    <table>
+      <thead><tr><th>Year / status</th><th>Paper</th><th>Venue</th><th>Role</th><th>Stream</th></tr></thead>
+      <tbody>
+        <tr><td class="yr"><span class="stat sPrep">in prep</span></td><td>Population dynamics during mnemonic working memory are structured by a single inhibitory cell type</td><td>&mdash;</td><td><span class="role r1">First</span></td><td><span class="stream" style="background:#1D9E75"></span>Primate</td></tr>
+        <tr><td class="yr"><span class="stat sPrep">in prep</span></td><td>The computational geometry of flexible decision making in prefrontal cortex</td><td>&mdash;</td><td><span class="role r1">First</span></td><td><span class="stream" style="background:#1D9E75"></span>Primate</td></tr>
+        <tr><td class="yr"><span class="stat sPrep">in prep</span></td><td>Prefrontal neural dynamics underlying abstract perceptual decisions</td><td>&mdash;</td><td><span class="role r1">First</span></td><td><span class="stream" style="background:#1D9E75"></span>Primate</td></tr>
+        <tr><td class="yr"><span class="stat sPrep">in prep</span></td><td>Multimodal characterization of pan-inhibitory enhancers (macaque)</td><td>&mdash;</td><td><span class="role r3">Co-author</span></td><td><span class="stream" style="background:#7F77DD"></span>Cell-type</td></tr>
+        <tr><td class="yr"><span class="stat sPre">2026 pre</span></td><td>Distinct neural dynamics in prefrontal &amp; premotor cortex underlie flexible perceptual decisions</td><td>bioRxiv</td><td><span class="role r2">Second</span></td><td><span class="stream" style="background:#1D9E75"></span>Primate</td></tr>
+        <tr><td class="yr"><span class="stat sPub">2026</span></td><td>PhysMAP &mdash; multi-modal identification of electrophysiological cell types</td><td>Nature Communications</td><td><span class="role r1">First</span></td><td><span class="stream" style="background:#7F77DD"></span>Cell-type</td></tr>
+        <tr><td class="yr"><span class="stat sPub">2026</span></td><td>Neuropixels reveal laminar microcircuit organization in monkey V1 in vivo</td><td>PNAS</td><td><span class="role r3">Co-author</span></td><td><span class="stream" style="background:#1D9E75"></span>Primate</td></tr>
+        <tr><td class="yr"><span class="stat sPub">2025</span></td><td>In vivo cell-type &amp; brain region classification via multimodal contrastive learning</td><td>ICLR (Spotlight)</td><td><span class="role r3">Co-author</span></td><td><span class="stream" style="background:#7F77DD"></span>Cell-type</td></tr>
+        <tr><td class="yr"><span class="stat sPub">2024</span></td><td>Pattern-violating stimuli in somata vs distal dendrites over days</td><td>J. Neuroscience</td><td><span class="role r3">Co-author</span></td><td><span class="stream" style="background:#378ADD"></span>Mouse VC</td></tr>
+        <tr><td class="yr"><span class="stat sPub">2023</span></td><td>WaveMAP for identifying putative cell types from extracellular electrophysiology</td><td>STAR Protocols</td><td><span class="role r1">First</span></td><td><span class="stream" style="background:#7F77DD"></span>Cell-type</td></tr>
+        <tr><td class="yr"><span class="stat sPub">2023</span></td><td>A cortical information bottleneck during decision-making</td><td>eLife</td><td><span class="role r3">Co-author</span></td><td><span class="stream" style="background:#1D9E75"></span>Primate</td></tr>
+        <tr><td class="yr"><span class="stat sPub">2023</span></td><td>Whole-brain monosynaptic input connectome, mouse V1 cell classes</td><td>Nature Neuroscience</td><td><span class="role r3">Co-author</span></td><td><span class="stream" style="background:#378ADD"></span>Mouse VC</td></tr>
+        <tr><td class="yr"><span class="stat sPub">2023</span></td><td>Somata / apical dendrite responses over days (dataset)</td><td>Scientific Data</td><td><span class="role r3">Co-author</span></td><td><span class="stream" style="background:#378ADD"></span>Mouse VC</td></tr>
+        <tr><td class="yr"><span class="stat sPub">2022</span></td><td>A standardized behavioral event equally impacts cortical visual areas &amp; layers</td><td>eNeuro</td><td><span class="role r2">Second</span></td><td><span class="stream" style="background:#378ADD"></span>Mouse VC</td></tr>
+        <tr><td class="yr"><span class="stat sPub">2022</span></td><td>Stimulus-evoked neurophysiological differentiation, mouse V1</td><td>eNeuro</td><td><span class="role r3">Co-author</span></td><td><span class="stream" style="background:#378ADD"></span>Mouse VC</td></tr>
+        <tr><td class="yr"><span class="stat sPub">2021</span></td><td>WaveMAP &mdash; cell type diversity via nonlinear dimensionality reduction of waveforms</td><td>eLife</td><td><span class="role r1">First</span></td><td><span class="stream" style="background:#7F77DD"></span>Cell-type</td></tr>
+        <tr><td class="yr"><span class="stat sPub">2020</span></td><td>Allen Brain Observatory &mdash; physiological survey of mouse VC (44th/72)</td><td>Nature Neuroscience</td><td><span class="role r3">Co-author</span></td><td><span class="stream" style="background:#378ADD"></span>Mouse VC</td></tr>
+        <tr><td class="yr"><span class="stat sPub">2020</span></td><td>VIP interneurons enhance responses to weak stimuli</td><td>eLife</td><td><span class="role r3">Co-author</span></td><td><span class="stream" style="background:#378ADD"></span>Mouse VC</td></tr>
+        <tr><td class="yr"><span class="stat sPub">2019</span></td><td>Variation in mouse visual cortical area size/shape/location</td><td>PLOS ONE</td><td><span class="role r2">Second</span></td><td><span class="stream" style="background:#378ADD"></span>Mouse VC</td></tr>
+        <tr><td class="yr"><span class="stat sPub">2017</span></td><td>Aberrant cortical activity in GCaMP6 transgenic lines</td><td>eNeuro</td><td><span class="role r3">Co-author</span></td><td><span class="stream" style="background:#378ADD"></span>Mouse VC</td></tr>
+        <tr><td class="yr"><span class="stat sPub">2017</span></td><td>Neuropathological / transcriptomic characteristics of aged brain</td><td>eLife</td><td><span class="role r3">Co-author</span></td><td><span class="stream" style="background:#888780"></span>Other</td></tr>
+        <tr><td class="yr"><span class="stat sPub">2016</span></td><td>Bisphenol A alters GnRH3 neuron development in medaka</td><td>NeuroToxicology</td><td><span class="role r3">Co-author</span></td><td><span class="stream" style="background:#888780"></span>Other</td></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+</body>
+</html>
