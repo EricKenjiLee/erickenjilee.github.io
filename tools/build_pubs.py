@@ -90,6 +90,7 @@ INVITED=[
  ('2026','Rutishauser Lab','Caltech &amp; Cedars-Sinai','virtual'),
  ('2024','Center for Molecular &amp; Behavioral Neuroscience','Rutgers University','person'),
  ('2024','Varol Lab','New York University','virtual'),
+ ('2021','Shadmehr Lab','Johns Hopkins University','virtual'),
  ('2021','Svoboda Lab','Janelia Research Campus','virtual'),
  ('2021','Valiante Lab','University of Toronto','virtual'),
  ('2021','Brain Observatory Group','Allen Institute for Brain Science','virtual'),
