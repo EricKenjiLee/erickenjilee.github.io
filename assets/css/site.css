@@ -376,6 +376,7 @@ html[data-theme="dark"] .theme-toggle .icon-sun { display: block; }
 .footer h2 { color: #f3f3f0; }
 .footer p { color: #9aa0a8; max-width: 520px; }
 .social { display: flex; gap: 14px; margin: 22px 0 28px; flex-wrap: wrap; }
+.footer-inner > .social:first-child { margin-top: 0; }
 .social a {
   width: 42px; height: 42px; border-radius: 50%; display: inline-flex; align-items: center; justify-content: center;
   border: 1px solid rgba(255,255,255,.14); color: #d7d9de; transition: all .15s ease;
