@@ -43,10 +43,10 @@ def _stream(sk):
     lbl,col=STREAMS[sk]; return '<span class="stream" style="background:%s"></span>%s'%(col,lbl)
 # actual titles (from the pre-rebuild page / Google Scholar); Wyrick preprint added
 PUBS_DATA=[
- ('sPrep','in prep','Population dynamics during mnemonic working memory are structured by a single inhibitory cell type.','&mdash;','r1','First','cellxprim'),
- ('sPrep','in prep','The computational geometry of flexible decision-making in prefrontal cortex.','&mdash;','r1','First','primate'),
- ('sPrep','in prep','Prefrontal neural dynamics underlying abstract perceptual decisions.','&mdash;','r1','First','primate'),
- ('sPrep','in prep','Multimodal characterization of pan-inhibitory enhancers for assessing inhibitory neuron function in macaque monkeys.','&mdash;','r3','Co-author','cellxprim'),
+ ('sPrep','in prep (writing)','Population dynamics during mnemonic working memory are structured by a single inhibitory cell type.','&mdash;','r1','First','cellxprim'),
+ ('sPrep','in prep (analysis)','The computational geometry of flexible decision-making in prefrontal cortex.','&mdash;','r1','First','primate'),
+ ('sPrep','in prep (writing)','Prefrontal neural dynamics underlying abstract perceptual decisions.','&mdash;','r1','First','primate'),
+ ('sPre','in submission','Multimodal characterization of pan-inhibitory enhancers for assessing inhibitory neuron function in macaque monkeys.','&mdash;','r3','Co-author','cellxprim'),
  ('sPre','2026 pre','Distinct neural dynamics in prefrontal and premotor cortex during flexible perceptual decisions.','bioRxiv','r2','Second','primate'),
  ('sPub','2026','A multimodal approach for visualizing and identifying electrophysiological cell types in vivo.','Nature Communications','r1','First','cellxmouse'),
  ('sPub','2026','Neuropixels reveal laminar microcircuit organization in monkey V1 in vivo.','PNAS','r3','Co-author','primate'),
@@ -307,13 +307,14 @@ JS = r'''
     function esc(s){ var d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
     function render(blurb){
       var kind='', bl=blurb;
-      var m=/^(IN PREP|PREPRINT|UPCOMING|INVITED(?: panel| talk)?|CONTRIBUTED(?: talk)?)\s*:?\s*/i.exec(blurb);
+      var m=/^(IN PREP|IN SUBMISSION|PREPRINT|UPCOMING|INVITED(?: panel| talk)?|CONTRIBUTED(?: talk)?)\s*:?\s*/i.exec(blurb);
       if(m){ kind=m[1].toUpperCase(); bl=blurb.slice(m[0].length); }
       var title, meta, m2=/\.["'”]?\s+/.exec(bl);
       if(m2){ var q=(m2[0].match(/["'”]/)||[''])[0]; title=bl.slice(0,m2.index)+q; meta=bl.slice(m2.index+m2[0].length); }
       else { title=bl; meta=''; }
       var bt='',bc='';
       if(/IN PREP/.test(kind)||/in prep/i.test(meta)){bt='In preparation';bc='b-prep';}
+      else if(/IN SUBMISSION/.test(kind)||/in submission/i.test(meta)){bt='In submission';bc='b-pre';}
       else if(/PREPRINT/.test(kind)){bt='Preprint';bc='b-pre';}
       else if(/UPCOMING/.test(kind)){bt='Upcoming talk';bc='b-up';}
       else if(/INVITED/.test(kind)){bt='Invited talk';bc='b-inv';}
