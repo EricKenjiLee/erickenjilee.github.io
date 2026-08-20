@@ -84,7 +84,7 @@ pubs  = pubs.replace('<table>', '<div class="tbl-wrap"><table>', 1).replace('</t
 # ---- Invited talks & seminars (hand-curated; folds in the Rutgers & Gordon talks) ----
 # (year, host/group, institution or series, format)
 INVITED=[
- ('2026','Gordon Research Seminar','Neurobiology of Cognition','upcoming'),
+ ('2026','Gordon Research Seminar','Neurobiology of Cognition','person'),
  ('2026','Steinmetz Lab','University of Washington','person'),
  ('2026','Sainsbury Wellcome Centre','University College London','person'),
  ('2026','Rutishauser Lab','Caltech &amp; Cedars-Sinai','virtual'),
@@ -307,13 +307,13 @@ JS = r'''
     function esc(s){ var d=document.createElement('div'); d.textContent=s; return d.innerHTML; }
     function render(blurb){
       var kind='', bl=blurb;
-      var m=/^(IN PREP|IN SUBMISSION|PREPRINT|UPCOMING|INVITED(?: panel| talk)?|CONTRIBUTED(?: talk)?)\s*:?\s*/i.exec(blurb);
+      var m=/^(IN PREP(?: \((?:WRITING|ANALYSIS)\))?|IN SUBMISSION|PREPRINT|UPCOMING|INVITED(?: panel| talk)?|CONTRIBUTED(?: talk)?)\s*:?\s*/i.exec(blurb);
       if(m){ kind=m[1].toUpperCase(); bl=blurb.slice(m[0].length); }
       var title, meta, m2=/\.["'”]?\s+/.exec(bl);
       if(m2){ var q=(m2[0].match(/["'”]/)||[''])[0]; title=bl.slice(0,m2.index)+q; meta=bl.slice(m2.index+m2[0].length); }
       else { title=bl; meta=''; }
       var bt='',bc='';
-      if(/IN PREP/.test(kind)||/in prep/i.test(meta)){bt='In preparation';bc='b-prep';}
+      if(/IN PREP/.test(kind)||/in prep/i.test(meta)){bt=/WRITING/.test(kind)?'In prep (writing)':/ANALYSIS/.test(kind)?'In prep (analysis)':'In preparation';bc='b-prep';}
       else if(/IN SUBMISSION/.test(kind)||/in submission/i.test(meta)){bt='In submission';bc='b-pre';}
       else if(/PREPRINT/.test(kind)){bt='Preprint';bc='b-pre';}
       else if(/UPCOMING/.test(kind)){bt='Upcoming talk';bc='b-up';}
