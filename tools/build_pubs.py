@@ -84,9 +84,10 @@ pubs  = pubs.replace('<table>', '<div class="tbl-wrap"><table>', 1).replace('</t
 # ---- Invited talks & seminars (hand-curated; folds in the Rutgers & Gordon talks) ----
 # (year, host/group, institution or series, format)
 INVITED=[
- ('2026','Gordon Research Seminar','Neurobiology of Cognition','upcoming'),
+ ('2026','Gordon Research Seminar','Neurobiology of Cognition','person'),
  ('2026','Steinmetz Lab','University of Washington','person'),
  ('2026','Sainsbury Wellcome Centre','University College London','person'),
+ ('2026','Institute for Behavioural Neuroscience','University College London','person'),
  ('2026','Rutishauser Lab','Caltech &amp; Cedars-Sinai','virtual'),
  ('2024','Center for Molecular &amp; Behavioral Neuroscience','Rutgers University','person'),
  ('2024','Varol Lab','New York University','virtual'),
